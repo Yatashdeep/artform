@@ -1,0 +1,89 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-buttons left style="    width: 19px;">
+        <button ion-button menuToggle>
+        <ion-icon item-start>
+          <img class="navbar-icon" item-left src="assets/Menu/navbar.png">
+        </ion-icon>
+         </button>
+    </ion-buttons>
+  <ion-title style="text-align:center;margin-left: -9px;">{{status}}</ion-title>
+    <!-- <ion-buttons  right style="    width: 34px;    margin-right: 12px;" >
+      <button style="font-size: 22px;" ion-button (click)="save()">
+       
+
+     <img src="assets/welcome/006-tick.png">
+     </button>
+  </ion-buttons> -->
+  </ion-navbar>
+
+
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item class="item-input">
+      <img class="icon-img" src="assets/welcome/user.png" item-left primary>
+      <ion-input [(ngModel)]="Name" placeholder="Enter Name"></ion-input>
+     </ion-item>
+     <ion-item class="item-input">
+      <img  class="icon-img" src="assets/welcome/mail.png" item-left primary>
+      <ion-input [(ngModel)]="Email" placeholder="Enter Email"></ion-input>
+     </ion-item>
+     <ion-item class="item-input">
+      <img class="icon-img" src="assets/create_conversation/message.png" item-left primary>
+      <ion-textarea [(ngModel)]="Message" rows="3" placeholder="Enter Message"></ion-textarea>
+     </ion-item>
+     <div>
+      <ion-row>
+      <!-- <ion-col col-1><img class="check-style1" src="assets/welcome/check.png"></ion-col> -->
+
+      <ion-checkbox [(ngModel)]="checkremember" style="    margin-top: 5px;" class="check" color="primary" checked="true"></ion-checkbox> 
+     <ion-col col-11>  <p style="    margin-top: -1px;">By submitting your details you consent to our <u (click)="navigatetopolicy()" style="font-family: AvenirLTStd-Heavy;">Privacy Policy</u></p></ion-col>
+    </ion-row> 
+    </div>
+    <ion-row style="justify-content: center;">
+    <button style="width: 43%;" ion-button color="primary" round  (click)="save()">Send</button>
+     </ion-row>
+  </ion-content>
+<ion-footer>
+
+  <ion-row class="div-icon">
+    <ion-col (click)="navigatetotab(0)" >
+      <div class="img-box">
+    <img class="img-style1" src="assets/tabsicon/home.png">
+    </div>
+   
+    <p class="p-tag">Home</p>
+    </ion-col>
+    <ion-col (click)="navigatetotab(1)">
+      <div class="img-box">
+      <img class="img-style1" src="assets/tabsicon/uploaded.png">
+      </div>
+      <p class="p-tag">Upload</p>
+    </ion-col>
+    <ion-col (click)="navigatetotab(2)">
+      <div class="img-box">
+      <img class="img-style1" src="assets/tabsicon/categories.png">
+      </div>
+      <p class="p-tag">Categories</p>
+    </ion-col>
+    <ion-col (click)="navigatetotab(3)">
+      <div class="img-box">
+      <img class="img-style1" src="assets/tabsicon/price.png">
+      </div>
+      <p class="p-tag">Competitions</p>
+    </ion-col>
+    <ion-col (click)="navigatetotab(4)">
+      <div class="img-box">
+      <img style=" border-radius: 34px;
+      height: 24px;
+      width: 24px;margin-top: 3px;" class="img-style1" src="assets/tabsicon/propic.jpg">
+      </div>
+      <p class="p-tag">Profile</p>
+    </ion-col>
+  </ion-row>
+
+</ion-footer>

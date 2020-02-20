@@ -1,0 +1,91 @@
+<!--
+  Generated template for the CompetitionspPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+      <ion-buttons left style="    width: 19px;">
+          <button ion-button menuToggle>
+          <ion-icon item-start>
+            <img class="navbar-icon" item-left src="assets/Menu/navbar.png">
+          </ion-icon>
+           </button>
+      </ion-buttons>
+    <ion-title style="text-align: center;    margin-left: -13px;">Competitions</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+
+    <ion-grid style="padding: 10px;" *ngIf="boxshow==true">
+        <ion-row  >
+          <!-- <ion-col class="div-parent"  style="padding: 7px 7px 11px;" *ngFor="let value of competitiondatafake;let i=index" col-6   >
+       <div class="img-back div-left" > 
+          
+            <ion-row style="margin-top: 84px;">
+      <p class="comp-title"></p>
+      
+      </ion-row>
+      <ion-row style="margin-top: -10px;" class="animate-imagebox">
+        <ion-col col-3>
+          <ion-icon style="margin-left:4px;color:#fff" ios="ios-calendar" md="md-calendar"></ion-icon>
+        </ion-col>
+        <ion-col col-9><p class="p-cal p-text p-points-text"></p></ion-col>
+      </ion-row>
+      </div>
+          </ion-col> -->
+          <ion-col col-6 *ngFor="let fake of competitiondatafake">
+              <div  class="div-parent"   >
+                
+                <div   class="div-left" >
+              
+                  <div class="animate-imagebox" width="80"  ></div>
+                  </div>
+                  <div class="div-right" >
+                    <div class="div-right-inner" >
+                      <p class="p-text p-points-text" style="font-size:1.2rem"></p>
+                      <p class="p-text p-points-text"></p>
+                    </div>
+                    </div>
+                    <div class="div-text">
+              
+                    </div>
+                   
+                  
+               
+               
+                  </div>
+          </ion-col> 
+        </ion-row>
+        
+      </ion-grid>  
+
+
+
+
+<ion-grid style="padding: 10px;" *ngIf="boxshow==false">
+  <ion-row  >
+    <ion-col style="padding: 7px 7px 11px;" *ngFor="let value of competitiondata;let i=index" col-6  (click)="detailpage(i)" >
+ <div class="img-back" [style.backgroundImage]="'url('+value.Competitions.media.featured.CompetitionsMedia.url+')'"> 
+    
+      <ion-row style="margin-top: 84px;">
+<p class="comp-title">{{value.Competitions.title}}</p>
+
+</ion-row>
+<ion-row style="margin-top: -10px;">
+  <ion-col col-3>
+    <ion-icon style="margin-left:4px;color:#fff" ios="ios-calendar" md="md-calendar"></ion-icon>
+  </ion-col>
+  <ion-col col-9><p class="p-cal">{{value.Competitions.started}}</p></ion-col>
+</ion-row>
+</div>
+    </ion-col>
+  </ion-row>
+  
+</ion-grid>
+</ion-content>

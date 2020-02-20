@@ -1,0 +1,61 @@
+page-howtouploadpagesidemenu {
+    .tutorial-page {
+
+        .toolbar-background {
+          background: #fff;
+          border-color: transparent;
+        }
+      
+        .slide-zoom {
+          height: 100%;
+        }
+      
+        .slide-title {
+          margin-top: 2.8rem;
+        }
+      
+        .slide-image {
+          max-height: 45%;
+          max-width: 60%;
+          margin: 18px 0;
+        }
+      
+        b {
+          font-weight: 500;
+        }
+      
+        p {
+          padding: 0 40px;
+          font-size: 11px;
+          line-height: 1.5;
+          color: #60646B;
+      
+          b {
+            color: #000000;
+          }
+        }
+      
+      }
+      .div-icon{
+        height: 67px;
+        width: 100;
+        background-color: #F7F7F7;
+    }
+    .img-style1{
+        height: 24px;
+        margin-top: 7px;
+        height: 20px;
+    }
+    .img-box{
+        display: flex;
+        
+        justify-content: center;
+    }
+    .p-tag{
+        text-align: center;
+        margin-top: 6px;
+        color:#B9B9B9;    font-size: 1rem;
+    }
+
+ 
+}

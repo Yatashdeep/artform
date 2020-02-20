@@ -1,0 +1,93 @@
+<!--
+  Generated template for the CreateconversationpagePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title style="text-align:center;    margin-left: -20px;">Create Conversation</ion-title>
+    <ion-buttons  right style="    width: 19px;    margin-right: 12px; " >
+      
+  
+      <button ion-button icon-only (click)="addTalk()">
+          <ion-icon  *ngIf="loader==false">
+              <img style="margin-right: 16px;" class="navbar-icon" item-left src="assets/create_conversation/tick.png">
+            </ion-icon>
+            <ion-spinner *ngIf="loader==true"></ion-spinner>
+      </button>
+  </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    
+  <div class="item-input">
+    <img class="icon-img-suggest" src="assets/create_conversation/user.png" item-left primary>
+    <!-- <ion-input placeholder="Invite Users"></ion-input> -->
+    <rl-tag-input (keyup)="createconv($event)" style="    margin-left: 54px;"
+    [(ngModel)]="topics"
+    [addOnBlur]="false"
+    [autocomplete]="true"
+    [autocompleteItems]="preparedTags"
+    placeholder="Invite Users">
+  </rl-tag-input>
+  </div>
+  <ion-item *ngIf="titlevalid==true">
+    <p style="color:red">Please enter atleast 3 words</p>
+  </ion-item>
+  <ion-item *ngIf="searching==true">
+      <p>Searching...</p>
+    </ion-item>
+    <ion-item *ngIf="searchingtext==true">
+        <p>No Recipient Found</p>
+      </ion-item>
+   <ion-item class="item-input">
+    <img  class="icon-img" src="assets/create_conversation/write.png" item-left primary>
+    <ion-input [(ngModel)]="title" placeholder="Enter title"></ion-input>
+   </ion-item>
+   
+   <ion-item class="item-input">
+    <img class="icon-img" src="assets/create_conversation/message.png" item-left primary>
+    <ion-textarea [(ngModel)]="Message" rows="3" placeholder="Enter Message"></ion-textarea>
+   </ion-item>
+   <ion-item class="item-input">
+    <img  class="icon-img" src="assets/create_conversation/attachment.png" item-left primary>
+    <ion-input [(ngModel)]="attachedsrc" style="width:10%" placeholder="Attach file"></ion-input>
+    
+   </ion-item>
+<div class="button-style" (click)="mediaoption()">
+  <button class="but-style" ion-button color="primary" round>Browse</button>
+</div>
+<div>
+  <p style="text-align:center">Please Upload file less than 5 mb</p>
+</div>
+<!-- <ion-item no-padding>
+  <ion-input [(ngModel)]="name" placeholder="My Awesome Talk"></ion-input>
+  </ion-item>
+    <rl-tag-input
+      [(ngModel)]="topics"
+      [addOnBlur]="false"
+      [autocomplete]="true"
+      [autocompleteItems]="preparedTags"
+      placeholder="Topics">
+    </rl-tag-input>
+  <button ion-button full (click)="addTalk()">Add Talk!</button>
+  <br><hr>
+   
+  <ion-list>
+    <ion-item *ngFor="let talk of talks">
+      {{ talk.name }}
+      <p>
+        {{ talk.topics.join(' ') }}
+      </p>
+    </ion-item>
+  </ion-list>
+   
+  <ion-card *ngIf="talks.length === 0">
+    <ion-card-content>No Talk found.</ion-card-content>
+  </ion-card> -->
+</ion-content>

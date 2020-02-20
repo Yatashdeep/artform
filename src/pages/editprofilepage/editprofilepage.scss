@@ -1,0 +1,66 @@
+page-editprofilepage {
+.img-pro{
+   
+    height: 84px;
+    border-radius: 50%;
+    /* z-index: 1; */
+    width: 84px;
+}
+.row-style{
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+}
+ion-label {
+  font-family: AvenirLTStd-Heavy;
+}
+.img-back{
+  height: 147px;
+    position: absolute;
+    width: 100%;
+    /* left: 5px; */
+    /* right: 6px; */
+    left: 0px;
+    top: 0px;
+}
+
+.but-style{
+    display: flex;
+    justify-content: center;
+}
+.butt{
+    height: 24px;
+    border-radius: 24px;
+    text-transform: none;
+    font-family: AvenirLTStd-Book;
+}
+
+.item-input{
+  
+    background-color: #E9E9E9;
+    margin-bottom: 14px;
+    border-radius: 5px;
+}
+.icon-img{
+    height: 20px;
+
+}
+.text-input::-moz-placeholder {
+    color:#000 ;
+  }
+  
+  .text-input:-ms-input-placeholder {
+    color:#000 ;
+  }
+  
+  .text-input::-webkit-input-placeholder {
+    text-indent: 0;
+    color:#000;
+  }
+  .select-style{
+    display: FLEX;
+    justify-content: center;
+    margin-top: 35px;
+    margin-bottom: 35px;
+  }
+}

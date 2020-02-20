@@ -1,0 +1,129 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+// Font path is used to include ionicons,
+// roboto, and noto sans fonts
+$font-path: "../assets/fonts";
+// $popover-md-width:200px;
+$popover-md-border-radius:5px;
+$popover-md-max-height:40%;
+
+
+$popover-ios-width:200px;
+$popover-ios-border-radius:5px;
+$popover-ios-max-height:40%;
+
+
+$popover-ios-width: 95%;
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
+$popover-md-width: 65%;
+// The app direction is used to include
+// rtl styles in your app. For more info, please see:
+// http://ionicframework.com/docs/theming/rtl-support/
+$app-direction: ltr;
+
+
+@import "ionic.globals";
+
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/theming/overriding-ionic-variables/
+
+
+
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+$colors: (
+  primary:    #000000,
+  secondary:  #32db64,
+  danger:     #f53d3d,
+  light:      #f4f4f4,
+  dark:       #807a7a
+);
+$text-input-placeholder-color: map-get($colors, dark);
+$font-family-md-base: "AvenirLTStd-Roman","AvenirLTStd-Heavy","Muli","AvenirLTStd-Roman","AvenirLTStd-Heavy","AvenirLTStd-Book";
+$font-family-wp-base: "AvenirLTStd-Roman","AvenirLTStd-Heavy","Muli","AvenirLTStd-Roman","AvenirLTStd-Heavy","AvenirLTStd-Book";
+
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+
+
+
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
+
+
+
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+
+@font-face {
+  font-family: "AvenirLTStd-Roman";
+  src: url(../assets/fonts/AvenirLTStd-Roman.otf) format("truetype");
+}
+
+@font-face {
+  font-family: "AvenirLTStd-Heavy";
+  src: url(../assets/fonts/AvenirLTStd-Heavy.otf) format("truetype");
+}
+@font-face {
+  font-family: "Muli";
+  src: url(../assets/fonts/Muli.ttf) format("truetype");
+}
+@font-face {
+  font-family: "AvenirLTStd-Book";
+  src: url(../assets/fonts/AvenirLTStd-Book.otf) format("truetype");
+}
+
+@font-face {
+  font-family: "AvenirLTStd-Heavy";
+  src: url(../assets/fonts/AvenirLTStd-Heavy.otf) format("truetype");
+}
+@font-face {
+  font-family: "AvenirLTStd-Roman";
+  src: url(../assets/fonts/AvenirLTStd-Roman.otf) format("truetype");
+}
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+@import "ionic.theme.default";
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/ionicons/
+
+@import "ionic.ionicons";
+
+
+// Fonts
+// --------------------------------------------------
+
+@import "roboto";
+@import "noto-sans";

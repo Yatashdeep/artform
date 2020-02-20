@@ -1,0 +1,84 @@
+<!--
+  Generated template for the CompetitiondetailpagePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="primary">
+  <ion-title style="text-align: center;    margin-left: -13px;">{{titlecompetition}}</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <!-- <div class="cover-img" [style.backgroundImage]="'url('+CompetitionsCoverMediaurl+')'">
+    
+<div>
+  <img style="height: 155px;" src="{{CompetitionsMediaurl}}">
+</div>
+  </div> -->
+ 
+    <div *ngIf="loadingtext==true" style="text-align: center;">
+    <p>Data Loading...</p>
+    <ion-spinner></ion-spinner>
+  </div>
+      <ion-slides *ngIf="carouselshow==true" pager class="slide-class">
+       <ion-slide *ngFor="let slide of carousel">
+        <div class="featured-image"  [style.backgroundImage]="'url('+slide.CompetitionsMedia.url+')'">
+        <img  src="{{CompetitionsMediaurl}}" class="slide-image"/>
+        </div>
+      </ion-slide>
+      
+      </ion-slides>
+      <div *ngIf="carouselshow==false">
+        <img  src="{{CompetitionsMediaurl}}">
+      </div>
+    <!-- <div *ngFor="let slide of carousel">
+    <p>{{slide.CompetitionsMedia.url}}</p>
+    </div> -->
+  <div style="margin-top: 27px;" [innerHTML]="competitiondata">
+
+  </div>
+
+  <p *ngIf="gallery" style="font-size: 2rem;margin-bottom: -23PX;">Gallery</p>
+  <ion-slides *ngIf="gallery" pager class="slide-class">
+    <ion-slide *ngFor="let slide of gallery">
+     <div class="featured-image"  [style.backgroundImage]="'url('+slide.CompetitionsMedia.url+')'">
+     </div>
+   </ion-slide>
+   
+   </ion-slides>
+
+   <p *ngIf="attachments" style="font-size:2rem;margin-bottom: -23PX;">Attachments</p>
+   <ion-slides *ngIf="attachments" pager class="slide-class">
+    <ion-slide *ngFor="let slide of attachments">
+      <!-- <p>{{slide.CompetitionsMedia.url}}</p> -->
+      <div *ngIf="slide.CompetitionsMedia.meta.type=='audio/mpeg'">
+        <audio controls>
+           
+            <source src="{{slide.CompetitionsMedia.url}}" type="audio/mpeg">
+         
+          </audio> 
+      </div>
+      <div *ngIf="slide.CompetitionsMedia.meta.type=='video/mp4'">
+        <video width="320" height="240" controls>
+            <source src="{{slide.CompetitionsMedia.url}}" type="video/mp4">
+          </video> 
+      </div>
+      <div *ngIf="slide.CompetitionsMedia.meta.type=='application/pdf'">
+        <button ion-button icon-only clear (click)="openpdf(slide.CompetitionsMedia.url)">
+            <ion-icon name="document"></ion-icon>
+          </button>
+      </div>
+     <!-- <div class="featured-image"  [style.backgroundImage]="'url('+slide.CompetitionsMedia.url+')'">
+     </div> -->
+   </ion-slide>
+   
+   </ion-slides>
+
+
+
+</ion-content>

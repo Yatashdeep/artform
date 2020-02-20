@@ -1,0 +1,143 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+.header-md::after, .tabs-md[tabsPlacement="top"] > .tabbar::after, .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before {
+    background-image: none !important;
+}
+.toolbar-md-primary .bar-button-clear-md, .toolbar-md-primary .bar-button-default-md, .toolbar-md-primary .bar-button-outline-md, .toolbar-md-primary .toolbar-title-md {
+    color: #dddcdc;
+    font-family: AvenirLTStd-Book;
+}
+.toolbar-title-md {
+    padding: 0 12px;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #424242;
+    font-weight: 200;
+    color: grey;
+}
+p{
+    font-family: AvenirLTStd-Roman ;
+    font-size:1.5rem
+}
+
+.button-md-primary {
+    color: #fff;
+    background-color: #000000;
+    font-family:AvenirLTStd-Heavy 
+}
+ion-label {
+font-size:1.5rem !important; 
+}
+.toolbar-title-md {
+    padding: 0 12px;
+    font-size: 2.2rem;
+}
+button {
+    font-family:AvenirLTStd-Heavy 
+}
+.button-md {
+    font-family:AvenirLTStd-Heavy 
+}
+.img-pro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img-style{
+    // height: 47px;
+    // border-radius: 29px;
+    // margin-top: 25px;
+    height: 47px;
+    border-radius: 50%;
+    margin-top: 25px;
+    width: 47px;
+}
+.welc-style{
+    margin-top: 41px;
+    margin-left: -9px;
+    font-size: 2.3rem;
+    font-size: grey;
+    color: #9a9a9a;
+    font-family: AvenirLTStd-Book;
+}
+.p-style{
+    margin-top: -36px;
+    margin-left: -9px;
+    font-family: AvenirLTStd-Heavy;
+}
+.icon-centre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cross-style{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.bar-button-menutoggle-md {
+    margin: 0 6px;
+    padding: 0 2px;
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+    -ms-flex-order: 1;
+    order: 1;
+    min-width: 39px;
+}
+// .popover-md .popover-content {
+//     background-color: rgba(0,0,0,0) !important;
+//     box-shadow: none ;
+// }
+// .popover-content {
+//     background-color: rgba(0,0,0,0) !important;
+//     box-shadow: none ;
+// }
+.platform-android .popover {
+    margin-top: -32px;
+    background-color: #fafafa;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35); }
+    .platform-android .popover .item {
+      border-color: #fafafa;
+      background-color: #fafafa;
+      color: #4d4d4d; }
+    .platform-android .popover.popover-bottom {
+      margin-top: 32px; }
+  .platform-android .popover-backdrop, .platform-android .popover-backdrop.active {
+    background-color: transparent; }
+    .loading-md .loading-wrapper {
+        border-radius: 2px;
+        max-width: 151px;
+        max-height: 90%;
+        color: rgba(0, 0, 0, 0.5); 
+        background: transparent;
+        box-shadow:none;
+       padding: 0px; 
+    }
+    ion-backdrop {
+     
+        background-color: none !important;
+        opacity: 0;
+    }
+    ion-backdrop.backdrop-no-tappable {
+        cursor: auto;
+        // opacity: 0;
+        // opacity: 0 !important;
+    }
+    .popover-wrapper .popover-content {
+        box-shadow: 0px 3px 15px 0px rgba(0,0,0,0.25);
+    }
+   

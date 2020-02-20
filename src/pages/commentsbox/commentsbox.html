@@ -1,0 +1,211 @@
+<!--
+  Generated template for the CommentsboxPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <div class="back-img" [ngStyle]="{'background-image':'url('+category_image_url+')'}" >
+        <ion-row>
+                     
+      <ion-col col-6 >
+       <button class="butt-style1" ion-button round (click)="close()">
+        <ion-icon style="color:#fff" name="close"></ion-icon>
+      </button>
+     
+      </ion-col>
+      <ion-col col-6 class="col-style">
+        <img class="img-pro" [src]="small_image_url">
+      </ion-col>
+        </ion-row>
+      <ion-row>
+          <ion-col col-6>
+        <p class="number-icon">{{id}}</p>
+        <p class="city-style">{{usermedia_name}}</p>
+        <p class="cat-style">{{artforms}}</p>
+        <ion-row class="row-style">
+        <!-- <ion-col class="rate-style1" col-3><img class="rate-style" src="assets/Dashboard/rating.png"></ion-col>
+        <ion-col col-9><p class="points-earn">6037</p></ion-col> -->
+        <img class="rate-style" src="assets/Dashboard/rating.png">
+        <p class="points-earn">{{totalrating}}</p>
+        </ion-row>
+          </ion-col>
+          <ion-col col-6>
+        <ion-row class="comments-style">
+          <img class="expand-img" src="assets/commentsbox/expand.png">
+        </ion-row>
+        <ion-row class="user-style" (click)="profilepic()">
+          <p class="pro-name" >{{user_display_name}}</p><img class="img-style" [src]="user_avatar">
+        </ion-row>
+        <ion-row class="vote-style" (click)="votesuccefully()">
+          <p class="vote-p">Vote</p>
+          <ionic3-star-rating style="    margin-right: 10px;
+          margin-top: 2px;"
+                  activeIcon = "ios-star"
+                  defaultIcon = "ios-star-outline"
+                  activeColor = "rgb(228, 215, 38)" 
+                  defaultColor = "rgb(228, 215, 38)"
+                  readonly="false"
+                  [rating]="rate">
+              </ionic3-star-rating>
+        </ion-row>
+          </ion-col>
+        </ion-row>
+        
+      </div>
+</ion-header>
+
+
+<ion-content >
+  
+
+<ion-row>
+  <ion-col class="img-centre" (click)="share()">
+    <img style="height: 22px;" src="assets/Dashboard/share-gray.png"> 
+  </ion-col>
+  <ion-col class="img-centre" (click)="followuser()">
+      <img style="height: 22px;" src="assets/Dashboard/user.png"> 
+    </ion-col>
+    <ion-col class="img-centre" (click)="reportnavigate()">
+        <img style="height: 22px;" src="assets/Dashboard/error.png"> 
+      </ion-col>
+</ion-row>
+<hr style="    height: 3px;">
+<ion-row>
+  <p class="lat-style">Latest Comments</p>
+</ion-row>
+<div *ngIf="loading==true">
+<ion-grid *ngFor="let value of commentdata;let i=index" > 
+  <ion-row> 
+<ion-col col-3 style="padding:0px">
+      <img class="icon-pro" [src]="value.Users.user_profile_avatar">
+    </ion-col>
+    <ion-col col-9>
+      
+    <p class="name-style" >{{value.Users.user_display_name}}</p>
+    <p class="para-style">{{value.MediaComment.usermedia_comment}}</p>
+  <ion-row style="margin-top: -19px;">
+    <ion-col (click)="editcomment(value.MediaComment.mediacomment_id,value.MediaComment.usermedia_comment)" *ngIf="value.Users.user_id==userid" col-2>
+    <p class="edit-style">Edit</p>
+    </ion-col>
+    <ion-col col-8 (click)="subcomment(value.MediaComment.mediacomment_id,value.Users.user_display_name,i)" > 
+    <p class="edit-style">Reply</p>
+  </ion-col>
+  <ion-col col-2 *ngIf="value.Users.user_id==userid" (click)="deletecomment(value.MediaComment.mediacomment_id,i)">
+    <ion-icon  *ngIf="loadingsend1==true" name="trash"></ion-icon>
+    <ion-spinner style="margin-bottom:10px" *ngIf="loadingsend1==false &&i==deleteid" ></ion-spinner> 
+  </ion-col>
+  </ion-row>
+
+  </ion-col>
+ </ion-row>
+ <ion-row>
+   <ion-col col-3>
+
+   </ion-col>
+
+   <ion-col col-8 *ngIf="i!=replyid"  >
+    <ion-row style="background-color: #efefef;margin-bottom: 10px;" *ngFor="let subvalues of value.Subcomments;let editid=index">  
+        
+            <ion-col col-3 style="padding-top: 15px;">
+                  <img class="icon-pro" [src]="subvalues.Users.user_profile_avatar">
+                </ion-col>
+                <ion-col col-9 style="    padding: 15px;
+                ">
+                  
+                <p class="name-style1" >{{subvalues.Users.user_display_name}}</p>
+                <p class="para-style1">{{subvalues.MediaSubcomment.usermedia_comment}}</p>
+              <ion-row style="margin-top: -19px;">
+             <ion-col (click)="updateeditsubcomment(value.MediaComment.mediacomment_id,subvalues.MediaSubcomment.mediasubcomment_id,subvalues.MediaSubcomment.usermedia_comment)" *ngIf="subvalues.Users.user_id==userid" col-10>
+                      <p class="edit-style">Edit</p>
+                      
+              </ion-col>
+              <ion-col col-2 (click)="deletesubcomment(subvalues.MediaSubcomment.mediasubcomment_id)">
+                <div *ngIf="subvalues.Users.user_id==userid" > 
+                <ion-icon style="padding-top:10px"  *ngIf="loadingeditsend==true" name="trash"></ion-icon>
+                <ion-spinner style="margin-bottom:10px" *ngIf="loadingeditsend==false && subvalues.MediaSubcomment.mediasubcomment_id==editdeleteid" ></ion-spinner>
+                </div>
+               
+                </ion-col>
+                <!-- <ion-col (click)="editcomment(value.MediaComment.mediacomment_id,value.MediaComment.usermedia_comment)" *ngIf="value.Users.user_id==userid" col-2>
+                <p class="edit-style">Edit</p>
+                </ion-col>
+                <ion-col col-8 (click)="subcomment()" > 
+                <p class="edit-style">Reply</p>
+              </ion-col>
+              <ion-col col-2 *ngIf="value.Users.user_id==userid" (click)="deletecomment(value.MediaComment.mediacomment_id,i)">
+                <ion-icon  *ngIf="loadingsend1==true" name="trash"></ion-icon>
+                <ion-spinner style="margin-bottom:10px" *ngIf="loadingsend1==false &&i==deleteid" ></ion-spinner> 
+              </ion-col> -->
+              </ion-row>
+            
+              </ion-col>
+            
+    </ion-row>
+    </ion-col>
+
+ <div *ngIf=" i==replyid">
+    <ion-spinner></ion-spinner>
+ </div>
+   <ion-col col-1>
+
+   </ion-col>
+ </ion-row>
+</ion-grid>
+</div>
+<div *ngIf="loading==false" style="    padding: 12px;">
+    <div *ngFor="let fake of fakeUsers" style="    margin-bottom: 12px;">
+      
+          
+         
+           
+        <div class="div-right-inner" >
+          <p class="p-text p-points-text" style="font-size:1.2rem"></p>
+       
+        </div>
+      
+        
+        
+</div>
+</div>
+<!-- <ion-row>
+  <ion-col col-2></ion-col>
+ <ion-col col-10>
+  <p class="bold-p">View all 120 comments</p>
+  </ion-col>
+</ion-row> -->
+
+</ion-content>
+<!-- <ion-footer class="footer-style">
+    <ion-spinner style="margin-bottom:10px" *ngIf="loadingsend==false" ></ion-spinner> 
+    
+  <ion-item *ngIf="loadingsend==true" class="item-input"  >
+       
+      <img *ngIf="send==false && editsend==false" style="    height: 28px;" (click)="sendbutton()" class="icon-img" src="assets/commentsbox/gps.png" item-right primary>
+      <img *ngIf="send==true && editsend==false" style="    height: 35px;" (click)="sendbutton1()" class="icon-img" src="assets/commentsbox/gps.png" item-right primary>
+      <img *ngIf="editsend==true" style="    height: 35px;" (click)="editsendbutton()" class="icon-img" src="assets/commentsbox/gps.png" item-right primary>  
+      <ion-input [(ngModel)]="comments" class="input-font-family" placeholder="Enter Comment"></ion-input>
+        
+        </ion-item>
+</ion-footer> -->
+<ion-footer class="footer-style">
+    <ion-spinner style="margin-bottom:10px" *ngIf="loadingsend==false" ></ion-spinner> 
+    
+  <!-- <ion-item *ngIf="loadingsend==true" class="item-input"  > -->
+        <div *ngIf="loadingsend==true" class="item-input">
+          <ion-row>
+            <ion-col col-9>
+                <ion-input style="margin-top: -4px;" [(ngModel)]="comments" class="input-font-family" placeholder="Enter Comment"></ion-input>
+    
+          </ion-col>
+          <ion-col col-3 style="text-align: end;
+          padding: 8px;">
+              <img (click)="sendbutton()" *ngIf="send==false && editsend==false" style="    height: 28px;"  class="icon-img" src="assets/commentsbox/gps.png" item-right primary>
+     
+              <img *ngIf="send==true && editsend==false" style="    height: 35px;" (click)="sendbutton1()" class="icon-img" src="assets/commentsbox/gps.png" item-right primary>
+              <img *ngIf="editsend==true" style="    height: 35px;" (click)="editsendbutton()" class="icon-img" src="assets/commentsbox/gps.png" item-right primary>  
+        </ion-col>  
+    </ion-row>    
+    </div>
+        <!-- </ion-item> -->
+</ion-footer>

@@ -1,0 +1,209 @@
+<!--
+  Generated template for the EditprofilepagePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+      <!-- <ion-buttons start>
+          <button ion-button color="danger" (click)="reset()">
+            Reset
+          </button>
+        </ion-buttons> -->
+    <ion-title style="text-align:center;margin-left: 45px;">Edit Profile</ion-title>
+    <!-- <ion-buttons end>
+        <button ion-button icon-only color="danger" (click)="imgSize()">
+          <ion-icon name="close"></ion-icon>
+        </button>
+        <button ion-button icon-only color="secondary" (click)="savecrop()">
+          <ion-icon name="checkmark"></ion-icon>
+        </button>
+      </ion-buttons> -->
+    <ion-buttons right style="    width: 14px;margin-right: 28px;"  >
+      <button style="    width: 52px;" ion-button (click)="tapshow()">
+        <ion-icon style="font-size: 2.5rem;" name="close"></ion-icon>
+   </button>
+   </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+ <!-- <div (click)="imgSize()">
+  <img class="sky" id="sky" src="assets/welcome/facebook.png"> 
+  </div> -->
+
+  <!-- <button ion-button full (click)="captureImage()" *ngIf="!myImage">Capture Image</button>
+  
+    <angular-cropper class="sky" #angularCropper [cropperOptions]="cropperOptions" [imageUrl]="myImage" *ngIf="myImage"></angular-cropper>
+  
+    <ion-row *ngIf="myImage">
+      <ion-col col-4>
+        <button ion-button outline icon-left color="primary" (click)="zoom(true)">
+          <ion-icon name="add"></ion-icon> Zoom
+        </button>
+      </ion-col>
+      <ion-col col-4>
+        <button ion-button outline icon-left color="primary" (click)="zoom(false)">
+          <ion-icon name="remove"></ion-icon> Zoom
+        </button>
+      </ion-col>
+      <ion-col col-4>
+        <button ion-button outline icon-left (click)="rotate()">
+          <ion-icon name="refresh"></ion-icon> 90 deg
+        </button>
+      </ion-col>
+  
+      <ion-col col-2>
+        <button ion-button clear (click)="scaleX()">
+          Flip X
+        </button>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button clear (click)="scaleY()">
+          Flip Y
+        </button>
+      </ion-col>
+  
+      <ion-col col-2>
+        <button ion-button clear icon-only (click)="move(0, -10)">
+          <ion-icon name="arrow-round-up"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button clear icon-only (click)="move(0, 10)">
+          <ion-icon name="arrow-round-down"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button clear icon-only (click)="move(-10, 0)">
+          <ion-icon name="arrow-round-back"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button clear icon-only (click)="move(10, 0)">
+          <ion-icon name="arrow-round-forward"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  
+    <ion-card *ngIf="croppedImage">
+      <ion-card-header>My Result</ion-card-header>
+      <ion-card-content>
+        <img   [src]="croppedImage">
+      </ion-card-content>
+    </ion-card> -->
+    <div >  
+  <div class="img-back" [ngStyle]="{'background-image':'url('+bannerimgsrc+')'}">
+
+  
+  </div>
+</div>
+  <ion-row class="row-style">
+  <ion-avatar style="    z-index: 1;" >
+      <img class="img-pro" [src]="profile">
+  </ion-avatar>
+
+
+</ion-row>
+
+<ion-row (click)="capturecamera()" style="   " class="but-style">
+  <button *ngIf="imageuploadactive==true"  class="butt" ion-button color="primary">Update Image</button>
+   <button *ngIf="imageuploadactive==false" class="butt" ion-button color="primary">Updating Image...</button>
+</ion-row>
+<ion-row (click)="uploadbanner()"   style="    margin-top: 8px;" class="but-style" >
+ 
+  <button *ngIf="banner==true" class="butt" ion-button color="primary">Update Banner</button>
+  <button *ngIf="banner==false" class="butt" ion-button color="primary">Uploading Banner....</button>
+</ion-row>
+<ion-label>Display Name</ion-label>
+<ion-item class="item-input">
+
+  <ion-input [(ngModel)]="user_display_name" placeholder="Enter name"></ion-input>
+ </ion-item>
+ <ion-label>User Message</ion-label>
+ <ion-item class="item-input">
+ 
+  <ion-input [(ngModel)]="user_message" placeholder="Enter your message"></ion-input>
+ </ion-item>
+<ion-row style=" margin-top: -14px;">
+<ion-col col-6>
+  <ion-label>First Name</ion-label>
+  <ion-item  style="    margin-left: -3px;" class="item-input">
+  
+   <ion-input [(ngModel)]="user_fname" placeholder="Enter First Name"></ion-input>
+  </ion-item>
+</ion-col>
+<ion-col col-6>
+  <ion-label>Last Name</ion-label>
+  <ion-item  style="    margin-left: 3px;"   class="item-input">
+  
+   <ion-input [(ngModel)]="user_lname" placeholder="Enter Last Name"></ion-input>
+  </ion-item>
+</ion-col>
+</ion-row>
+<ion-row style=" margin-top: -14px;">
+<ion-col col-6>
+  <ion-label>Country</ion-label>
+  <ion-item  style="    margin-left: -3px;"  class="item-input">
+  
+   <ion-input [(ngModel)]="user_nationality" placeholder="Enter Country"></ion-input>
+    <!-- <ion-icon  name="arrow-dropdown" item-right></ion-icon>  -->
+  </ion-item>
+</ion-col>
+<ion-col col-6>
+  <ion-label>City</ion-label>
+  <ion-item style="    margin-left: 3px;"  class="item-input">
+  
+   <ion-input  [(ngModel)]="user_city" placeholder="Enter City"></ion-input>
+
+  </ion-item>
+</ion-col>
+</ion-row>
+
+<ion-label style="    margin-top: -5px;">Biography</ion-label>
+<ion-item class="item-input">
+
+  <ion-textarea [(ngModel)]="user_biography" placeholder="Tell the world about yourself.The shorter the better."></ion-textarea>
+ </ion-item>
+
+ <ion-row style="    margin-top: -11px;">
+  <ion-col style="    margin-left: -3px;" >
+    <ion-label>Birth Date</ion-label>
+    <ion-item class="item-input">
+    
+        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="user_birth"></ion-datetime>
+    
+    </ion-item>
+  </ion-col>
+  <ion-col style="    margin-left: 3px;" >
+    <ion-label>Sex</ion-label>
+    <ion-item class="item-input" style="    padding-left: 2px;">
+        <ion-select  style="    padding: 0px;margin-left: 25px;" [(ngModel)]="user_sex">
+            <ion-option value="Male">Male</ion-option>
+            <ion-option value="Female">Female</ion-option>
+     </ion-select> 
+     
+    </ion-item>
+  </ion-col>
+  </ion-row>
+  <ion-label style="    margin-top: -7px;">Phone</ion-label>
+  <ion-item class="item-input">
+  
+    <ion-input type="number" [(ngModel)]="user_mobileno" placeholder="Enter Mobile number"></ion-input>
+   </ion-item>
+   <div class="select-style" style="    margin-bottom: -21px;">
+      <button (click)="save()" style="width: 61%;    height: 40px;" ion-button round>{{status}}</button>
+    </div>
+
+<div class="select-style" *ngIf="artistprop=='inactive'" >
+  <button (click)="category()" style="width: 61%;    height: 40px;" ion-button round>SELECT CATEGORIES</button>
+</div>
+
+
+
+
+</ion-content>

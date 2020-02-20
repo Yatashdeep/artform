@@ -1,0 +1,29 @@
+page-viewtalent {
+    .container {
+        padding: 20px;
+    }
+    .pop-up{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .pop-style{
+        background-color: #fff;
+        width: 70%;
+        border-radius: 6px;
+        height: 21%;
+    }
+    .close-style{
+            display: flex;
+    justify-content: flex-end;
+    margin-right: 11px;
+    /* width: 100%; */
+    margin-top: 11px;
+    }
+    .close-position
+    {
+        display:flex;
+        justify-content:right;  
+    }
+}

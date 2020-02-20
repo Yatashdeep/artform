@@ -1,0 +1,39 @@
+<ion-menu [content]="content">
+
+        <ion-content>
+            <div style="background-color: #E1E1E1" (click)="navigatetotab()">
+                <ion-row>
+                    <ion-col col-3 class="img-pro">
+                     <img class="img-style" src="{{(profile_pic)?profile_pic:'assets/tabsicon/propic.jpg'}}">
+                    </ion-col>
+                    <ion-col col-7>
+                     <p class="welc-style">Welcome</p>
+                     <br>
+                     <p class="p-style">{{firtsname}}</p>
+                     </ion-col>
+                     <ion-col col-2 class="cross-style" (click)="closemenu()">
+                        <img style="    width: 12px;" src="assets/reportpop/close (1).png">
+                        </ion-col>
+                </ion-row>
+            </div>
+
+
+            <ion-list lines>
+                <ion-row style="    border-bottom: 1px solid #c7c3c3;"  *ngFor="let p of pages;let i=index" (click)="openPage(p)">
+                   <ion-col col-3 class="icon-centre">
+                       <div [style.marginLeft]="p.title=='Connect'?'8px':'0px'" style="    height: 30px;
+                       width: 33px;
+                       display: inline-flex;
+                   ">
+                    <img [style.marginLeft] = "p.title == 'Get in Touch'||p.title=='Privacy Policy' ? '-5px' : '-4px'" [style.height] = "p.title == 'Get in Touch'||p.title=='Privacy Policy' ? '21px' : '23px'" id="{{i}}_img" src="{{p.logo}}" style="   margin-top: 3px;  margin-left: -4px;   height: 23px;;margin-bottom: -3px; ;margin-right: 20px;">
+                      </div>
+                </ion-col>
+                 <ion-col col-9 style="    margin-left: -21px;">
+                      <p style="color: #838181;">{{p.title}}</p>
+                 </ion-col>    
+                </ion-row>
+            </ion-list>
+        </ion-content>
+       
+    </ion-menu>
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

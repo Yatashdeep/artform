@@ -1,0 +1,60 @@
+
+
+<ion-content class="content-color">
+  <!-- https://www.youtube.com/embed/xxCVVQUBWTo -->
+     <!-- <iframe allow="encrypted-media" src="https://www.youtube.com/embed/xxCVVQUBWTo"></iframe>     -->
+       
+     <!-- <script>
+      // Load the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/player_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    
+      // Replace the 'ytplayer' element with an <iframe> and
+      // YouTube player after the API code downloads.
+      var player;
+      function onYouTubePlayerAPIReady() {
+        player = new YT.Player('ytplayer', {
+          height: '360',
+          width: '640',
+          videoId: 'M7lc1UVf-VE'
+        });
+      }
+    </script> -->
+<ion-grid no-padding>
+  <ion-row no-padding (click)="logout()">
+  <p class="p-head">
+    <!-- <div id="ytplayer"></div> -->
+
+
+Welcome to
+  </p>
+  </ion-row>
+  <ion-row no-padding (click)="login()"> 
+  <p class="p-headbold">
+Artform Platform
+  </p>
+  </ion-row>
+  <ion-row class="img-row">
+<div class="img-art" >
+  <div class="img-shadow">
+    </div>
+  <img src="assets/welcome/logoart.png">
+
+</div>
+  </ion-row>
+
+  <ion-row class="navigate-bar">
+      <button style="width: 43%;" ion-button color="dark" round outline (click)="navigatetoSecurity()">Get Started</button>
+
+
+   
+  </ion-row>
+</ion-grid> 
+<!-- <vg-player>
+  <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+    <source src="https://www.youtube.com/embed/xxCVVQUBWTo" type="youtube">
+  </video>
+</vg-player> -->
+</ion-content>

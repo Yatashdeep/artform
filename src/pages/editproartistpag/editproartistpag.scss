@@ -1,0 +1,54 @@
+page-editproartistpag {
+    .img-pro{
+        height: 74px;
+        border-radius: 50%;
+    }
+    .row-style{
+        display: flex;
+        justify-content: center;
+        margin-top: 12px;
+    }
+    ion-label {
+      font-family: AvenirLTStd-Heavy;
+    }
+    
+    .but-style{
+        display: flex;
+        justify-content: center;
+    }
+    .butt{
+        height: 24px;
+        border-radius: 24px;
+        text-transform: none;
+        font-family: AvenirLTStd-Book;
+    }
+    
+    .item-input{
+      
+        background-color: #E9E9E9;
+        margin-bottom: 14px;
+        border-radius: 5px;
+    }
+    .icon-img{
+        height: 20px;
+    
+    }
+    .text-input::-moz-placeholder {
+        color:#000 ;
+      }
+      
+      .text-input:-ms-input-placeholder {
+        color:#000 ;
+      }
+      
+      .text-input::-webkit-input-placeholder {
+        text-indent: 0;
+        color:#000;
+      }
+      .select-style{
+        display: FLEX;
+        justify-content: center;
+        margin-top: 35px;
+        margin-bottom: 35px;
+      }
+}

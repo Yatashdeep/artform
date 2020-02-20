@@ -1,0 +1,48 @@
+<!--
+  Generated template for the ViewvideoplayPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content style="background-color: rgba(0,0,0,.6);">
+  <div  class="pop-up">
+      
+        <button *ngIf="usertype=='image/jpeg'" class="butt-style" ion-button round  (click)="close()">
+          <ion-icon name="close"></ion-icon>
+        </button>  
+        <button *ngIf="usertype!='image/jpeg'" class="butt-style1" ion-button round  (click)="close()">
+            <ion-icon name="close"></ion-icon>
+          </button>  
+    
+    <div class="pop-style">
+  
+  <div *ngIf="usertype=='image/jpeg'||usertype=='image/png'||usertype=='application/jpg'" style="text-align: center;">
+      <img style="    width: 100%;" [src]="pathurl">
+  </div>
+  <div *ngIf="usertype!='image/jpeg' && usertype!='image/png' && usertype!='application/jpg'" style="text-align: center;">
+    <!-- <video playsinline autoplay style="height: 189px;width: 96%;" *ngIf="iframe==false" width="330" controls autoplay>
+        <source src="{{pathurl}}" type="{{usertype}}">
+      </video>  -->
+      <iframe allow="autoplay; encrypted-media" style="height: 189px;width: 96%;" *ngIf="iframe==true" width="420" height="345" [src]="pathsantiz" >
+      </iframe>
+      <!-- <youtube-player  style="height: 189px;width: 96%;" *ngIf="iframe==true" [playerId]='"player"' [width]="300" [height]="200" [videoId]="videoid"> </youtube-player> -->
+      
+      
+</div>
+  </div>
+  </div>
+  <!-- <div id="youtube-player">
+
+  </div> -->
+</ion-content>
+
+
+
+
+
+
+
+
+
+

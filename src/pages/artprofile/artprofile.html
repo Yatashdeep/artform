@@ -1,0 +1,853 @@
+<!--
+  Generated template for the ArtprofilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+      <ion-buttons left style="    width: 19px;">
+          <button ion-button menuToggle>
+          <ion-icon item-start>
+            <img class="navbar-icon" item-left src="assets/Menu/navbar.png">
+          </ion-icon>
+           </button>
+      </ion-buttons>
+    <ion-title style="    text-align: CENTER;margin-left:26px;margin-top: 5px;">{{title}}</ion-title>
+ 
+    <ion-buttons (click)="tapshow3()" right style="    width: 14px;    margin-right: 16px;"  >
+       <button style="    width: 26px;" ion-button >
+        <ion-icon item-start >
+          <img class="navbar-icon" item-left src="assets/profile/share.png">
+        </ion-icon>
+    </button>
+    </ion-buttons>
+  
+  </ion-navbar>
+  
+  <div *ngIf="showshare==true" id="shareid" class="share-service">
+      <div class="arrow-icon">
+          <img class="icon-img" src="assets/profile/arrow.png" >
+        </div>
+        <ion-row style="    padding: 7px;
+        margin-top: -7px;">
+         <ion-col>
+           <img src="assets/profile/facebook.png">
+         </ion-col> 
+         <ion-col>
+            <img src="assets/profile/twitter.png ">
+         </ion-col> 
+         <ion-col>
+            <img src="assets/profile/google_plus.png">
+         </ion-col> 
+         <ion-col>
+            <img src="assets/profile/pinterest.png"> 
+         </ion-col> 
+         <ion-col>
+            <img src="assets/profile/whatsaap.png">
+         </ion-col> 
+         <ion-col>
+            <img src="assets/profile/mailwhite.png">
+         </ion-col>
+        </ion-row>
+    </div>
+    <!-- <div *ngIf="loadercover==false" class="row-image">
+      <div class="div-right-inner" >
+        <p class="p-text p-points-text" style="font-size:1.2rem"></p>
+        <p class="p-text p-points-text"></p>
+      </div>
+    </div> -->
+    <div   class="row-image" [ngStyle]="{'background-image':'url('+banner+')'}" >
+      <ion-row  >
+    <ion-col style="    padding: 15px;">
+    <div class="circle-radius">
+    <img *ngIf="loaderitem==false" style="border-radius: 50%;    height: 100%;    width: 100%;" [src]="profile_pic" >
+
+    </div>
+    <p style="    margin-top: 5px;
+    font-weight: 500;
+    color: #fff;
+    font-size: 1.6rem;
+    font-family: AvenirLTStd-Heavy;    margin-left: 8px;    height: 0px;">{{firtsname}}</p>
+    <!-- <p style="    margin-top: -11px;font-weight: 100;    color: #fff;">NYC</p> -->
+    </ion-col>
+    <ion-col>
+     
+      <ion-row style="    text-align: center;    margin-top: 6px;" >
+      <ion-col (click)="inboxtap()">
+     <div class="pro-div"> 
+    <img style="    height: 17px;    margin-top: 11px;" src="assets/profile/mail.png">
+    
+    </div>
+    <p class="p-tag" >Inbox</p>
+    </ion-col>
+  
+  <ion-col  (click)="uploadfile()">
+    <!-- <ion-col (click)="uploadnavigate()" > -->
+    <!-- <div *ngIf="artistprop=='active'" class="pro-div" style="background-color:#F29A10">
+    <img  style="    height: 17px;    margin-top: 11px;" src="assets/profile/downloads.png">
+    
+    </div>
+    <p *ngIf="artistprop=='active'" class="p-tag">Upload</p> -->
+    <div  class="pro-div" style="background-color:hsl(37, 90%, 51%)">
+      <img  style="    height: 17px;    margin-top: 11px;" src="assets/profile/downloads.png">
+      
+      </div>
+      <p  class="p-tag">Upload</p>
+    </ion-col>
+    <ion-col (click)="editprop()">
+    <div class="pro-div">
+    <img style="    height: 17px;    margin-top: 11px;" src="assets/profile/edit.png">
+    
+    </div>
+    <p class="p-tag">Edit</p>
+    </ion-col>
+    </ion-row>
+    </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col  >
+     <ion-row>
+       <ion-col col-5>
+         <p (click)="movetofollowers(1)" style="font-size:1.3rem;    display: inline-flex; color: #fff !important;   ">{{follower}} <span class="text-style" > Followers</span></p>
+       </ion-col>
+       <ion-col col-2>
+         <hr class="hr-line">
+       </ion-col>
+       <ion-col col-5>
+          <p (click)="movetofollowers(2)" style="font-size:1.3rem;     display: inline-flex;color: #fff  !important;">{{following}} <span class="text-style" > Following</span></p>
+       </ion-col>
+     </ion-row>
+      </ion-col>
+    <ion-col>
+      <ion-row style="    padding: 7px;">
+        <ion-col>
+          <!-- <img src="assets/profile/facebook (2).png"> -->
+        </ion-col>
+        <ion-col>
+            <!-- <img src="assets/profile/002-twitter.png"> -->
+        </ion-col>
+        <ion-col>
+            <!-- <img src="assets/profile/linkedIn.png"> -->
+        </ion-col>
+        <ion-col>
+            <!-- <img src="assets/profile/pinterest (2).png"> -->
+        </ion-col>
+        <ion-col>
+            <!-- <img src="assets/profile/instagram.png"> -->
+        </ion-col>
+      </ion-row>
+    </ion-col>
+    </ion-row>
+    </div>
+    
+      <ion-segment   [(ngModel)]="playlist" style="font-family: AvenirLTStd-Heavy;" >
+        <ion-segment-button class="seg-stylepro" value="latest" (ionSelect)="changeplaylist(1)">
+               {{charttitle}} Charts
+        </ion-segment-button>
+        <ion-segment-button class="seg-stylepro" value="recent" (ionSelect)="changeplaylist(2)">
+               Recent Uploads
+        </ion-segment-button>
+      </ion-segment>
+    
+</ion-header>
+
+
+<ion-content >
+    <div *ngIf="artistprop=='inactive'"  class="category-list" >
+  <div  id="categorylist" >
+    
+    <ion-row style="padding: 6px;">
+   <ion-col style="font-weight: 500;    font-family: AvenirLTStd-Heavy;font-size: 1.6rem;">Categories</ion-col>
+   <ion-col *ngIf="showcat==true" (click)="showcatevent(1)" class="prop-see" >See All</ion-col>
+   <ion-col *ngIf="showcat==false" (click)="showcatevent(2)" class="prop-see" >Close</ion-col>
+ </ion-row>
+ <ion-row *ngIf="showcat==true"  style="margin-top: -8px;">
+  <ion-col class="col-cat" (click)="songtype(1)">
+    <img class="img-cat" src="assets/category/categories1.png">
+    <p class="cat-types">Music</p>
+</ion-col>
+<ion-col  class="col-cat" (click)="songtype(2)">
+    <img class="img-cat" src="assets/category/categories2.png">
+<p class="cat-types">Dance</p>
+  </ion-col>
+<ion-col  class="col-cat" (click)="songtype(3)">
+    <img class="img-cat" src="assets/category/categories3.png">
+<p class="cat-types">Film</p>
+  </ion-col>
+<ion-col  class="col-cat" (click)="songtype(4)">
+    <img class="img-cat" src="assets/category/categories4.png">
+    <p class="cat-types">Photography</p>
+</ion-col>
+<ion-col  class="col-cat" (click)="songtype(7)">
+    <img class="img-cat" src="assets/category/categories5.png">
+    <p class="cat-types">Litreature</p>
+</ion-col>
+ </ion-row>
+<div *ngIf="showcat==false" >
+  <ion-row>
+    <ion-col class="col-cat" (click)="songtype(1)">
+        <img class="img-cat" src="assets/category/categories1.png">
+        <p class="cat-types">Music</p>
+    </ion-col>
+    <ion-col  class="col-cat" (click)="songtype(2)">
+        <img class="img-cat" src="assets/category/categories2.png">
+  <p class="cat-types">Dance</p>
+      </ion-col>
+    <ion-col  class="col-cat" (click)="songtype(3)">
+        <img class="img-cat" src="assets/category/categories3.png">
+   <p class="cat-types">Film</p>
+      </ion-col>
+    <ion-col  class="col-cat" (click)="songtype(4)">
+        <img class="img-cat" src="assets/category/categories4.png">
+        <p class="cat-types">Photography</p>
+    </ion-col>
+   
+    </ion-row>
+    <ion-row>
+       
+        <ion-col  class="col-cat" (click)="songtype(7)">
+            <img class="img-cat" src="assets/category/categories5.png">
+      <p class="cat-types">Litreature</p>
+          </ion-col>
+        <ion-col  class="col-cat" (click)="songtype(8)">
+            <img class="img-cat" src="assets/category/categories6.png">
+       <p class="cat-types">Art</p>
+          </ion-col>
+        <ion-col  class="col-cat" (click)="songtype(5)">
+            <img class="img-cat" src="assets/category/categories7.png">
+            <p class="cat-types">Freestyle</p>
+        </ion-col>
+        <ion-col  class="col-cat" (click)="songtype(9)">
+            <img class="img-cat" src="assets/category/categories8.png">
+            <p class="cat-types">Personality</p>
+        </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col  class="col-cat" (click)="songtype(6)">
+                <img class="img-cat" src="assets/category/categories9.png">
+                <p class="cat-types">Other</p>
+            </ion-col>
+        </ion-row>
+  </div>
+  
+
+</div>
+</div>
+
+<div [ngSwitch]="playlist"  >
+  <!-- <div *ngIf="artistprop=='inactive'"  > -->
+  <!-- <div  id="categorylist" *ngSwitchCase="'latest'" class="category-list">
+    
+      <ion-row style="padding: 6px;">
+     <ion-col style="font-weight: 500;    font-family: AvenirLTStd-Heavy;font-size: 1.6rem;">Categories</ion-col>
+     <ion-col *ngIf="showcat==true" (click)="showcatevent(1)" class="prop-see" >See All</ion-col>
+     <ion-col *ngIf="showcat==false" (click)="showcatevent(2)" class="prop-see" >Close</ion-col>
+   </ion-row>
+   <ion-row *ngIf="showcat==true"  style="margin-top: -8px;">
+    <ion-col class="col-cat" (click)="songtype(1)">
+      <img class="img-cat" src="assets/category/categories1.png">
+      <p class="cat-types">Music</p>
+  </ion-col>
+  <ion-col  class="col-cat" (click)="songtype(2)">
+      <img class="img-cat" src="assets/category/categories2.png">
+<p class="cat-types">Dance</p>
+    </ion-col>
+  <ion-col  class="col-cat" (click)="songtype(3)">
+      <img class="img-cat" src="assets/category/categories3.png">
+ <p class="cat-types">Film</p>
+    </ion-col>
+  <ion-col  class="col-cat" (click)="songtype(4)">
+      <img class="img-cat" src="assets/category/categories4.png">
+      <p class="cat-types">Photography</p>
+  </ion-col>
+  <ion-col  class="col-cat" (click)="songtype(7)">
+      <img class="img-cat" src="assets/category/categories5.png">
+      <p class="cat-types">Litreature</p>
+  </ion-col>
+   </ion-row>
+  <div *ngIf="showcat==false" >
+    <ion-row>
+      <ion-col class="col-cat" (click)="songtype(1)">
+          <img class="img-cat" src="assets/category/categories1.png">
+          <p class="cat-types">Music</p>
+      </ion-col>
+      <ion-col  class="col-cat" (click)="songtype(2)">
+          <img class="img-cat" src="assets/category/categories2.png">
+    <p class="cat-types">Dance</p>
+        </ion-col>
+      <ion-col  class="col-cat" (click)="songtype(3)">
+          <img class="img-cat" src="assets/category/categories3.png">
+     <p class="cat-types">Film</p>
+        </ion-col>
+      <ion-col  class="col-cat" (click)="songtype(4)">
+          <img class="img-cat" src="assets/category/categories4.png">
+          <p class="cat-types">Photography</p>
+      </ion-col>
+     
+      </ion-row>
+      <ion-row>
+         
+          <ion-col  class="col-cat" (click)="songtype(7)">
+              <img class="img-cat" src="assets/category/categories5.png">
+        <p class="cat-types">Litreature</p>
+            </ion-col>
+          <ion-col  class="col-cat" (click)="songtype(8)">
+              <img class="img-cat" src="assets/category/categories6.png">
+         <p class="cat-types">Art</p>
+            </ion-col>
+          <ion-col  class="col-cat" (click)="songtype(5)">
+              <img class="img-cat" src="assets/category/categories7.png">
+              <p class="cat-types">Freestyle</p>
+          </ion-col>
+          <ion-col  class="col-cat" (click)="songtype(9)">
+              <img class="img-cat" src="assets/category/categories8.png">
+              <p class="cat-types">Personality</p>
+          </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col  class="col-cat" (click)="songtype(6)">
+                  <img class="img-cat" src="assets/category/categories9.png">
+                  <p class="cat-types">Other</p>
+              </ion-col>
+          </ion-row>
+    </div>
+    
+  
+  </div> -->
+  <!-- </div> -->
+  <div  *ngSwitchCase="'latest'" >
+        
+    <ion-list class="recent-upload"  >
+       <ion-row style="    padding: 17px;"  *ngIf="artistprop=='inactive'" >
+         <ion-col>
+          <p style="font-weight: bold;font-size: 1.3rem;"> Based on your prefrences</p>
+
+          </ion-col>
+         <ion-col style="text-align: end;"><button (click)="changeprefrence()" class="button-prefrence" ion-button color="primary">Change Prefrences</button></ion-col>
+       </ion-row>
+ <ion-row style="margin-top: -18px;" padding>
+ <p class="head-p" *ngIf="artistprop=='inactive'"><span class="span-head">Latest Uploads </span>{{type}}</p>    
+</ion-row>   
+<loaderdata *ngIf="loaderitem==true"></loaderdata>
+<ion-row   *ngFor="let value of latestchart;let i=index"  style="    margin-top: -10px;    margin-bottom: 26px;">
+  <div class="image-tag">
+     
+      <img style="    width: 89%;" [src]="value.media_thumbnail_url">
+     
+    </div>
+    <div class="img-box"  >
+    <div class="img-content" >
+      <div (click)="viewvideo(i)" class="cat-div" > 
+        <!-- <img class="cat-icon" [src]="value.mediathumbnailuser"> -->
+        <ion-row>
+            <ion-col style="position:absolute" class="cols-style">
+               <p style="color:#fff;text-align: start;
+
+               font-size: 2.9rem;
+               
+               position: absolute;
+               
+               top: -46px;"> 0{{i+1}}</p> 
+               </ion-col>
+            <ion-col col-8>
+              
+             <img *ngIf="value.media_type=='video/mp4'||value.media_type=='youtube' || value.media_type=='audio/mpeg' || value.media_type=='audio/mp3' " class="play-style" src="assets/play.png">
+             </ion-col>
+             <ion-col col-4>
+          
+           <!-- <img class="cat-icon" [src]="value.small_image_url"> -->
+           <img class="cat-icon" [src]="value.mediathumbnailuser">
+             </ion-col>
+         </ion-row>
+      </div>
+      <div class="details" >
+        <ion-row>
+          <ion-col col-5>
+            <div class="details-1">
+              <p class="title">{{value.usermedia_name}}</p>
+              <p class="arts">{{value.artforms}} </p>
+              <!-- <div *ngIf="user_display_name!=value.user_display_name" class="stars" (click)="openstar(value.rating,value.usermediaid,value.user_display_name)"> <ionic3-star-rating  -->
+                <div *ngIf="user_display_name!=value.user_display_name" class="stars" (click)="openstar(value.usermediaid)"> <ionic3-star-rating 
+                activeIcon = "ios-star"
+                defaultIcon = "ios-star-outline"
+                activeColor = "rgb(228, 215, 38)" 
+                defaultColor = "#f4f4f4"
+                readonly="false"
+                [rating]="value.rating">
+              </ionic3-star-rating></div>
+          
+              <div *ngIf="user_display_name==value.user_display_name" class="stars" > <ionic3-star-rating 
+                activeIcon = "ios-star"
+                defaultIcon = "ios-star-outline"
+                activeColor = "rgb(228, 215, 38)" 
+                defaultColor = "#f4f4f4"
+                readonly="true"
+                [rating]="value.rating">
+              </ionic3-star-rating>
+              </div>
+            </div>
+          </ion-col>
+          <ion-col col-4>
+            <div class="details-2">
+            <p class="author-name">{{value.user_display_name}}</p>
+            <!-- <p class="post-time">{{value.usermedia_posted}}</p> -->
+            </div>
+          </ion-col>
+          <ion-col col-3>
+            <figure class="author-img">
+                <img (click)="artistpro(i)" style="border-radius: 35px;" class="custom-cat-icon" [src]="value.user_avatar">
+            </figure>
+          </ion-col>
+        </ion-row>         
+      </div>
+
+      <!-- <div class="detail-grid" >
+        
+      <div style="margin-top: 6px;" class="detail-div" >
+         <p style="font-weight: bold;" class="music-type">{{value.usermedia_name}}</p>
+         <p class="title-type">{{value.toptypeprofile}}</p>
+         <div *ngIf="user_display_name!=value.user_display_name" class="star-div" (click)="openstar(value.usermediaid)"> <ionic3-star-rating 
+          activeIcon = "ios-star"
+          defaultIcon = "ios-star-outline"
+          activeColor = "rgb(228, 215, 38)" 
+          defaultColor = "#f4f4f4"
+          readonly="false"
+          [rating]="value.totalRating">
+      </ionic3-star-rating></div>
+      <div *ngIf="user_display_name==value.user_display_name" class="star-div" > <ionic3-star-rating 
+        activeIcon = "ios-star"
+        defaultIcon = "ios-star-outline"
+        activeColor = "rgb(228, 215, 38)" 
+        defaultColor = "#f4f4f4"
+        readonly="true"
+        [rating]="value.totalRating">
+    </ionic3-star-rating></div>
+    </div>
+      
+      <div style="text-align:right; " class="detail-div1" >
+        <div class="author-box">
+        <p style="    height: 0px;font-weight: bold">{{value.user_display_name}}</p>
+        <p>{{value.usermedia_posted}}</p>
+        </div>
+      </div>
+      <div   class="detail-div userpic">
+        <img (click)="artistpro(i)" class="userimage" [src]="value.user_profile_avatar">
+      </div>
+      </div> -->
+
+    </div>
+    </div>
+    <div class="post-img">
+ <div class="social-img">
+   
+   <div class="header1">
+      <img  class="img-post" src="assets/Dashboard/share-gray.png">
+      <div class="share-div" (click)="tapshow1(i)"></div>
+    </div>
+    <div class="header1" (click)="followedartist(value.artist_id,value.user_display_name)">
+        <img class="img-post" src="assets/Dashboard/user.png">
+      </div>
+      <div class="header1" (click)="navigatetocomment(i)">
+          <img class="img-post" src="assets/Dashboard/msg.png">
+        </div>
+        <div class="header1" (click)="reportnavigate()">
+            <img class="img-post" src="assets/Dashboard/error.png">
+          </div>
+
+          <div class="header1" (click)="DeleteMedia(value.usermediaid,i,'artist')">
+             <ion-icon name="ios-trash-outline" mode="ios"></ion-icon>
+          </div>
+    </div>
+  </div>
+  </ion-row>
+
+</ion-list>
+  </div>
+  <!-- <div >
+    <div  id="categorylist" class="category-list" *ngSwitchCase="'recent'">
+   
+        <ion-row style="    padding: 6px;">
+       <ion-col style="font-weight: 500;">Categories</ion-col>
+       <ion-col *ngIf="showcat==true" (click)="showcatevent(1)" class="prop-see" >See All</ion-col>
+       <ion-col *ngIf="showcat==false" (click)="showcatevent(2)" class="prop-see" >Close</ion-col>
+     </ion-row>
+     <ion-row *ngIf="showcat==true"  style="margin-top: -8px;">
+       <ion-col class="col-cat" (click)="songtype(1)">
+         <img class="img-cat" src="assets/category/categories1.png">
+         <p class="cat-types">Music</p>
+     </ion-col>
+     <ion-col  class="col-cat" (click)="songtype(2)">
+         <img class="img-cat" src="assets/category/categories2.png">
+   <p class="cat-types">Dance</p>
+       </ion-col>
+     <ion-col  class="col-cat" (click)="songtype(3)">
+         <img class="img-cat" src="assets/category/categories3.png">
+    <p class="cat-types">Film</p>
+       </ion-col>
+     <ion-col  class="col-cat" (click)="songtype(4)">
+         <img class="img-cat" src="assets/category/categories4.png">
+         <p class="cat-types">Photography</p>
+     </ion-col>
+     <ion-col  class="col-cat" (click)="songtype(7)">
+         <img class="img-cat" src="assets/category/categories5.png">
+         <p class="cat-types">Litreature</p>
+     </ion-col>
+     </ion-row>
+    <div *ngIf="showcat==false" >
+      <ion-row>
+        <ion-col class="col-cat" (click)="songtype(1)">
+            <img class="img-cat" src="assets/category/categories1.png">
+            <p class="cat-types">Music</p>
+        </ion-col>
+        <ion-col  class="col-cat" (click)="songtype(2)">
+            <img class="img-cat" src="assets/category/categories2.png">
+      <p class="cat-types">Dance</p>
+          </ion-col>
+        <ion-col  class="col-cat" (click)="songtype(3)">
+            <img class="img-cat" src="assets/category/categories3.png">
+       <p class="cat-types">Film</p>
+          </ion-col>
+        <ion-col  class="col-cat" (click)="songtype(4)">
+            <img class="img-cat" src="assets/category/categories4.png">
+            <p class="cat-types">Photography</p>
+        </ion-col>
+       
+        </ion-row>
+        <ion-row>
+           
+            <ion-col  class="col-cat" (click)="songtype(7)">
+                <img class="img-cat" src="assets/category/categories5.png">
+          <p class="cat-types">Litreature</p>
+              </ion-col>
+            <ion-col  class="col-cat" (click)="songtype(8)">
+                <img class="img-cat" src="assets/category/categories6.png">
+           <p class="cat-types">Art</p>
+              </ion-col>
+            <ion-col  class="col-cat" (click)="songtype(5)">
+                <img class="img-cat" src="assets/category/categories7.png">
+                <p class="cat-types">Freestyle</p>
+            </ion-col>
+            <ion-col  class="col-cat" (click)="songtype(9)">
+                <img class="img-cat" src="assets/category/categories8.png">
+                <p class="cat-types">Personality</p>
+            </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col  class="col-cat" (click)="songtype(6)">
+                    <img class="img-cat" src="assets/category/categories9.png">
+                    <p class="cat-types">Other</p>
+                </ion-col>
+            </ion-row>
+      </div>
+      
+    
+    </div>
+  </div> -->
+    <div  *ngSwitchCase="'recent'">
+          
+      <!-- <ion-list class="recent-upload"  >
+          <ion-row style="    padding: 17px;" *ngIf="artistprop=='inactive'">
+              <ion-col>
+               <p style="    font-weight: bold;
+               font-size:1.3rem "> Based on your prefrence</p>
+     
+               </ion-col>
+              <ion-col style="text-align: end;"><button (click)="changeprefrence()" class="button-prefrence" ion-button color="primary">Change Prefrences</button></ion-col>
+            </ion-row>
+   <ion-row padding style="margin-top: -18px;">
+   <p class="head-p"><span class="span-head">Recent Uploads </span> in Music</p>    
+  </ion-row>   
+  
+  <ion-row *ngFor="let value of profilerecentcharts"  style="    margin-top: -10px;    margin-bottom: 26px;">
+    <div class="image-tag">
+       
+        <img style="    width: 89%;" src="assets/Dashboard/thumbnail.png">
+       
+      </div>
+      <div class="img-box" >
+      <div class="img-content">
+        <div class="cat-div"> 
+          <img class="cat-icon" src="assets/Dashboard/artist_profile1.png">
+        </div>
+       
+        <div class="detail-grid">
+          
+        <div style="margin-top: 6px;" class="detail-div">
+           <p style="font-weight: bold;" class="music-type">King Cay Music</p>
+           <p class="title-type">Music / Hip Hop/ Rap</p>
+           <div class="star-div"> <ionic3-star-rating 
+            activeIcon = "ios-star"
+            defaultIcon = "ios-star-outline"
+            activeColor = "rgb(228, 215, 38)" 
+            defaultColor = "#f4f4f4"
+            readonly="true"
+            [rating]="5">
+        </ionic3-star-rating></div>
+        </div>
+        
+        <div style="text-align:right; " class="detail-div1" (click)="artistpro()">
+          <div class="author-box">
+          <p style="    height: 0px;font-weight: bold">King Cay</p>
+          <p>10 mins ago</p>
+          </div>
+        </div>
+        <div   class="detail-div userpic">
+          <img class="userimage" src="assets/tabsicon/propic.jpg">
+        </div>
+        </div>
+  
+      </div>
+      </div>
+      <div class="post-img">
+   <div class="social-img">
+     
+     <div class="header1">
+        <img  class="img-post" src="assets/Dashboard/share-gray.png">
+        <div class="share-div" (click)="tapshow1()"></div>
+      </div>
+      <div class="header1" (click)="followedartist()">
+          <img class="img-post" src="assets/Dashboard/user.png">
+        </div>
+        <div class="header1" (click)="navigatetocomment()">
+            <img class="img-post" src="assets/Dashboard/msg.png">
+          </div>
+          <div class="header1" (click)="reportnavigate()">
+              <img class="img-post" src="assets/Dashboard/error.png">
+            </div>
+  
+      </div>
+    </div>
+    </ion-row>
+  
+  </ion-list> -->
+  
+  <ion-list class="recent-upload"  >
+    <ion-row style="    padding: 17px;"  *ngIf="artistprop=='inactive'" >
+      <ion-col>
+       <p style="font-weight: bold;font-size: 1.3rem;"> Based on your prefrences</p>
+
+       </ion-col>
+      <ion-col style="text-align: end;"><button (click)="changeprefrence()" class="button-prefrence" ion-button color="primary">Change Prefrences</button></ion-col>
+    </ion-row>
+<ion-row style="margin-top: -18px;" padding>
+<p *ngIf="!type" class="head-p"><span class="span-head">Recent Uploads </span> </p> 
+<p *ngIf="type" class="head-p"><span class="span-head">Recent Uploads </span>  {{type}}</p>   
+</ion-row>   
+<!-- <ion-row style="    padding: 6px;">
+  <ion-col style="font-weight: 500;">Categories</ion-col>
+  <ion-col *ngIf="showcat==true" (click)="showcatevent(1)" class="prop-see" >See All</ion-col>
+  <ion-col *ngIf="showcat==false" (click)="showcatevent(2)" class="prop-see" >Close</ion-col>
+</ion-row>
+<ion-row *ngIf="showcat==true"  style="margin-top: -8px;">
+  <ion-col class="col-cat" (click)="songtype(1)">
+    <img class="img-cat" src="assets/category/categories1.png">
+    <p class="cat-types">Music</p>
+</ion-col>
+<ion-col  class="col-cat" (click)="songtype(2)">
+    <img class="img-cat" src="assets/category/categories2.png">
+<p class="cat-types">Dance</p>
+  </ion-col>
+<ion-col  class="col-cat" (click)="songtype(3)">
+    <img class="img-cat" src="assets/category/categories3.png">
+<p class="cat-types">Film</p>
+  </ion-col>
+<ion-col  class="col-cat" (click)="songtype(4)">
+    <img class="img-cat" src="assets/category/categories4.png">
+    <p class="cat-types">Photography</p>
+</ion-col>
+<ion-col  class="col-cat" (click)="songtype(7)">
+    <img class="img-cat" src="assets/category/categories5.png">
+    <p class="cat-types">Litreature</p>
+</ion-col>
+</ion-row>
+<div *ngIf="showcat==false" >
+ <ion-row>
+   <ion-col class="col-cat" (click)="songtype(1)">
+       <img class="img-cat" src="assets/category/categories1.png">
+       <p class="cat-types">Music</p>
+   </ion-col>
+   <ion-col  class="col-cat" (click)="songtype(2)">
+       <img class="img-cat" src="assets/category/categories2.png">
+ <p class="cat-types">Dance</p>
+     </ion-col>
+   <ion-col  class="col-cat" (click)="songtype(3)">
+       <img class="img-cat" src="assets/category/categories3.png">
+  <p class="cat-types">Film</p>
+     </ion-col>
+   <ion-col  class="col-cat" (click)="songtype(4)">
+       <img class="img-cat" src="assets/category/categories4.png">
+       <p class="cat-types">Photography</p>
+   </ion-col>
+  
+   </ion-row>
+   <ion-row>
+      
+       <ion-col  class="col-cat" (click)="songtype(7)">
+           <img class="img-cat" src="assets/category/categories5.png">
+     <p class="cat-types">Litreature</p>
+         </ion-col>
+       <ion-col  class="col-cat" (click)="songtype(8)">
+           <img class="img-cat" src="assets/category/categories6.png">
+      <p class="cat-types">Art</p>
+         </ion-col>
+       <ion-col  class="col-cat" (click)="songtype(5)">
+           <img class="img-cat" src="assets/category/categories7.png">
+           <p class="cat-types">Freestyle</p>
+       </ion-col>
+       <ion-col  class="col-cat" (click)="songtype(9)">
+           <img class="img-cat" src="assets/category/categories8.png">
+           <p class="cat-types">Personality</p>
+       </ion-col>
+       </ion-row>
+       <ion-row>
+           <ion-col  class="col-cat" (click)="songtype(6)">
+               <img class="img-cat" src="assets/category/categories9.png">
+               <p class="cat-types">Other</p>
+           </ion-col>
+       </ion-row>
+ </div>
+  -->
+<loaderdata *ngIf="loadingrecentdata==true"></loaderdata>
+
+
+<ion-row  *ngFor="let value of profilerecentcharts;let i=index"  style="       margin-bottom: 26px;">
+
+
+  <div class="image-tag">
+  
+   <img style="    width: 89%;" [src]="value.media_thumbnail_url">
+  
+ </div>
+ <div class="img-box" >
+ <div class="img-content">
+   <div (click)="viewvideo1(i)" class="cat-div"> 
+     <!-- <img class="cat-icon" [src]="value.mediathumbnailuser"> -->
+     <ion-row>
+        
+        <ion-col col-8>
+          
+         <img *ngIf="value.media_type=='video/mp4'||value.media_type=='youtube' || value.media_type=='audio/mpeg' || value.media_type=='audio/mp3'" class="play-style" src="assets/play.png">
+         </ion-col>
+         <ion-col col-4>
+      
+       <!-- <img class="cat-icon" [src]="value.small_image_url"> -->
+       <img class="cat-icon" [src]="value.mediathumbnailuser">
+         </ion-col>
+     </ion-row>
+   </div>
+   <div class="details" >
+    <ion-row>
+      <ion-col col-5>
+        <div class="details-1">
+          <p class="title">{{value.usermedia_name}}</p>
+          <p class="arts">{{value.artforms}} </p>
+       
+            <div *ngIf="user_display_name!=value.user_display_name" class="stars" (click)="openstar(value.usermediaid)"> <ionic3-star-rating 
+            activeIcon = "ios-star"
+            defaultIcon = "ios-star-outline"
+            activeColor = "rgb(228, 215, 38)" 
+            defaultColor = "#f4f4f4"
+            readonly="false"
+            [rating]="value.rating">
+          </ionic3-star-rating></div>
+      
+          <div *ngIf="user_display_name==value.user_display_name" class="stars" > <ionic3-star-rating 
+            activeIcon = "ios-star"
+            defaultIcon = "ios-star-outline"
+            activeColor = "rgb(228, 215, 38)" 
+            defaultColor = "#f4f4f4"
+            readonly="true"
+            [rating]="value.rating">
+          </ionic3-star-rating>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col col-4>
+        <div class="details-2">
+        <p class="author-name">{{value.user_display_name}}</p>
+        <!-- <p class="post-time">{{value.usermedia_posted}}</p> -->
+        </div>
+      </ion-col>
+      <ion-col col-3>
+        <figure class="author-img">
+            <img (click)="artistpro1(i)" style="border-radius: 35px;" class="custom-cat-icon" [src]="value.user_avatar">
+        </figure>
+      </ion-col>
+    </ion-row>         
+  </div>
+   <!-- <div class="detail-grid">
+     
+   <div style="margin-top: 6px;" class="detail-div" >
+      <p style="font-weight: bold;" class="music-type">{{value.usermedia_name}}</p>
+      <p class="title-type">{{value.toptypeprofile}}</p>
+      <div *ngIf="user_display_name!=value.user_display_name" class="star-div" (click)="openstar(value.usermediaid)"> <ionic3-star-rating 
+       activeIcon = "ios-star"
+       defaultIcon = "ios-star-outline"
+       activeColor = "rgb(228, 215, 38)" 
+       defaultColor = "#f4f4f4"
+       readonly="false"
+       [rating]="value.totalRating">
+   </ionic3-star-rating></div>
+
+   <div *ngIf="user_display_name==value.user_display_name" class="star-div" > <ionic3-star-rating 
+    activeIcon = "ios-star"
+    defaultIcon = "ios-star-outline"
+    activeColor = "rgb(228, 215, 38)" 
+    defaultColor = "#f4f4f4"
+    readonly="true"
+    [rating]="value.totalRating">
+</ionic3-star-rating></div>
+   </div>
+   
+   <div style="text-align:right; " class="detail-div1" >
+     <div class="author-box">
+     <p style="    height: 0px;font-weight: bold">{{value.user_display_name}}</p>
+     <p>{{value.usermedia_posted}}</p>
+     </div>
+   </div>
+   <div   class="detail-div userpic">
+     <img (click)="artistpro1(i)" class="userimage" [src]="value.user_profile_avatar">
+   </div>
+   </div> -->
+
+ </div>
+ </div>
+ <div class="post-img">
+<div class="social-img">
+
+<div class="header1">
+   <img  class="img-post" src="assets/Dashboard/share-gray.png">
+   <div class="share-div" (click)="tapshow2(i)"></div>
+ </div>
+ <div class="header1" (click)="followedartist(value.artist_id)">
+     <img class="img-post" src="assets/Dashboard/user.png">
+   </div>
+   <div class="header1" (click)="navigatetocomment1(i)">
+       <img class="img-post" src="assets/Dashboard/msg.png">
+     </div>
+     <div class="header1" (click)="reportnavigate()">
+         <img class="img-post" src="assets/Dashboard/error.png">
+       </div>
+
+    <div class="header1" (click)="DeleteMedia(value.usermediaid,i,'recent')">
+        <ion-icon name="ios-trash-outline" mode="ios"></ion-icon> 
+    </div> 
+
+ </div>
+</div>
+
+</ion-row>
+<ion-infinite-scroll (ionInfinite)="loadMore($event)" loadingSpinner="bubbles" loadingText="Loading data...">
+  <ion-infinite-scroll-content></ion-infinite-scroll-content>
+</ion-infinite-scroll>
+</ion-list>
+
+    </div>
+   
+  
+</div>
+
+</ion-content>
+

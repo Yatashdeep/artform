@@ -1,0 +1,56 @@
+page-getintouch {
+    .item-input{
+  
+        background-color: #E9E9E9;
+        margin-bottom: 14px;
+        border-radius: 5px;
+    }.icon-img{
+        height: 20px;
+    
+    }
+    .text-input::-moz-placeholder {
+        color:#000 ;
+      }
+      
+      .text-input:-ms-input-placeholder {
+        color:#000 ;
+      }
+      
+      .text-input::-webkit-input-placeholder {
+        text-indent: 0;
+        color:#000;
+      }
+      .button-style{
+        position: absolute;
+     
+        width: 91%;
+        margin-top: -56px;
+        display: flex;
+        justify-content: flex-end;
+      }
+      .but-style{
+        height: 32px;
+        margin-right: 10px;
+        text-transform: none;
+      }
+      .div-icon{
+        height: 67px;
+        width: 100;
+        background-color: #F7F7F7;
+    }
+    .img-style1{
+        height: 24px;
+        margin-top: 7px;
+        height: 20px;
+    }
+    .img-box{
+        display: flex;
+        
+        justify-content: center;
+    }
+    .p-tag{
+        text-align: center;
+        margin-top: 6px;
+        color:#B9B9B9;    font-size: 1rem;
+    }
+}

@@ -1,0 +1,78 @@
+<!--
+  Generated template for the ChatinboxreplyPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title style="text-align:center;    margin-left: -20px;">{{username}}</ion-title>
+    <ion-buttons  right style="    width: 19px;    margin-right: 12px;">
+       
+      <ion-icon >
+        <img *ngIf="loading==false" style="margin-right: 16px;      border-radius: 50%;
+        
+        height: 18px;width:18px " class="navbar-icon" item-left [src]="img">
+      </ion-icon>
+  
+  </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding #pageTop>
+  <ion-list *ngIf="loading==true">
+    <p style="    text-align: center;">Loading messages..</p>
+  </ion-list>
+ <ion-list *ngIf="loading==false">
+    <ion-infinite-scroll *ngIf="loader==true" (ionInfinite)="loadMore($event)" loadingSpinner="bubbles" loadingText="Loading data...">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+<div *ngFor="let value of message" style="    margin-bottom: 19px;">
+   
+  <img style="    height: 30px;
+  border-radius: 50%;
+  width: 30px;" [src]="value.user_profile_avatar">
+  <div class="bubble-box">
+    <p class="p-name">{{value.user_display_name}}</p>
+    <div [innerHTML]="value.message" >
+      <!-- <div> -->
+      <!-- <p>{{value.message}}</p> -->
+    </div>
+
+    </div>
+    <div style="padding: 28px;" *ngIf="value.file_type=='image'">
+<img [src]="value.file_url" >
+    </div>
+    <div style="padding: 28px;" *ngIf="value.file_type=='video'">
+      <video  width="300" controls>
+        <source [src]="value.file_url" type="video/mp4">
+      </video>
+          </div>
+    <div style="text-align: end;">{{value.status}}</div>
+    <div style="text-align:start">{{value.created | date:format}}</div>
+</div>
+
+ </ion-list>
+
+
+
+
+</ion-content>
+
+<ion-footer class="footer-style">
+    
+    <ion-spinner *ngIf="loaderspinner==true"></ion-spinner>
+  <ion-item *ngIf="loaderspinner==false"  class="item-input"  >
+       
+    <img   style="    height: 35px;" (click)="replytomessage()" class="icon-img" src="assets/commentsbox/gps.png" item-right primary>  
+ 
+   
+    <img  class="icon-img" (click)="mediaoption()" src="assets/create_conversation/attachment.png" item-left primary>
+    <ion-input *ngIf="imgsrc"  [(ngModel)]="imgsrc" class="input-font-family" placeholder="Upload File"></ion-input>
+    <ion-input  [(ngModel)]="comments" class="input-font-family" placeholder="Enter Comment"></ion-input>
+        
+        </ion-item>
+</ion-footer>

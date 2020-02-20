@@ -1,0 +1,77 @@
+page-tabspage {
+    ion-icon {
+        &[class*="custom-"] {
+            margin: 0 5px 0 0;
+            vertical-align: middle;
+            $sz: 20px;
+            width: $sz;
+            height: $sz;
+        } // custom icons
+        &[class*="home"][ng-reflect-is-active="true"] {
+            background: url("../assets/tabsicon/homehighlight.png") no-repeat 50% 50%;
+            background-size: contain;
+        }//in case of active
+        &[class*="home"][ng-reflect-is-active="false"] {
+            background: url("../assets/tabsicon/home.png") no-repeat 50% 50%;
+            background-size: contain;
+        }
+        &[class*="upload"][ng-reflect-is-active="true"] {
+            background: url("../assets/tabsicon/downloads_black.png") no-repeat 50% 50%;
+            background-size: contain;
+        }//in case of active
+        &[class*="upload"][ng-reflect-is-active="false"] {
+            background: url("../assets/tabsicon/uploaded.png") no-repeat 50% 50%;
+            background-size: contain;
+            height: 22px;
+        }
+        &[class*="category"][ng-reflect-is-active="true"] {
+            background: url("../assets/tabsicon/conditions.png") no-repeat 50% 50%;
+            background-size: contain;
+        }//in case of active
+        &[class*="category"][ng-reflect-is-active="false"] {
+            background: url("../assets/tabsicon/categories.png") no-repeat 50% 50%;
+            background-size: contain;
+        }
+        &[class*="price"][ng-reflect-is-active="true"] {
+            background: url("../assets/tabsicon/award.png") no-repeat 50% 50%;
+            background-size: contain;
+        }//in case of active
+        &[class*="price"][ng-reflect-is-active="false"] {
+            background: url("../assets/tabsicon/price.png") no-repeat 50% 50%;
+            background-size: contain;
+        }
+        &[class*="propic"][ng-reflect-is-active="true"] {
+            background: url("../assets/tabsicon/propic.jpg") no-repeat 50% 50%;
+            background-size: contain;
+            border-radius: 34px;
+            height: 26px;
+            width: 26px;
+        }//in case of active
+        &[class*="propic"][ng-reflect-is-active="false"] {
+             background: url("../assets/tabsicon/propic.jpg") no-repeat 50% 50%;
+            background-size: contain;
+            border-radius: 34px;
+            height: 24px;
+            width: 24px;
+        }
+    }
+    .tabs-md .tab-button[aria-selected=true] .tab-button-text {
+    font-size:.9rem ;
+    margin-left: -5px;
+    }
+    .tabs-md .tab-button[aria-selected=false] .tab-button-text {
+        font-size:.9rem ;
+        margin-left: -5px;
+        }
+        page-tabspage .tabs-md .tab-button[aria-selected=false] .tab-button-text {
+            font-size: 1.1rem;
+            margin-left: -5px;
+        }
+        .tab-icon-custom {
+            height: 100%;
+            object-fit: cover;
+            margin: 0 auto;
+            width: 24px;
+            border-radius: 50%;
+         }
+}

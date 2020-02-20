@@ -1,0 +1,1053 @@
+<!-- 
+<ion-header>
+
+  <ion-navbar color="primary">
+    
+   <ion-row no-padding>
+    <ion-col col-3 no-padding>
+        <ion-buttons left style="    width: 19px;">
+            <button ion-button menuToggle>
+            <ion-icon item-start>
+              <img class="navbar-icon" item-left src="assets/Menu/navbar.png">
+            </ion-icon>
+             </button>
+        </ion-buttons>
+    </ion-col>
+    <ion-col style="text-align:center" col-9 no-padding>
+        <img  class="img-style"   item-centred src="assets/welcome/logoart.png">
+    </ion-col>
+   </ion-row>
+   <ion-row no-padding>
+      <div class="segment-class">
+          <ion-segment  [(ngModel)]="pet" (ionChange)=onSegmentChanged($event)>
+              <ion-segment-button  class="seg-tab" value="recentuploads" >
+          Recent Uploads
+              </ion-segment-button>
+              <hr class="divider-seg">
+              <ion-segment-button class="seg-tab" value="top_performers" >
+           Top Performers
+              </ion-segment-button>
+              <hr class="divider-seg">
+              <ion-segment-button class="seg-tab" value="trending_items" >
+                  Trending Items
+                      </ion-segment-button>
+            </ion-segment>
+          </div>
+   </ion-row>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+   
+    <div *ngIf="catshow==true" id="categorylist" class="category-list" >
+        <ion-row style="    padding: 6px;">
+       <ion-col style="font-weight: 500;    font-weight: bold;font-size: 1.6rem;">Categories</ion-col>
+       <ion-col *ngIf="showcat==true" (click)="showcatevent(1)" class="prop-see" >See All</ion-col>
+       <ion-col *ngIf="showcat==false" (click)="showcatevent(2)" class="prop-see" >Close</ion-col>
+     </ion-row>
+     <ion-row  *ngIf="showcat==true"  style="margin-top: -8px;">
+       <ion-col class="col-cat" (click)="songtype(1)">
+         <img class="img-cat" src="assets/category/categories1.png">
+         <p class="cat-types">Music</p>
+     </ion-col>
+     <ion-col  class="col-cat" (click)="songtype(2)">
+         <img class="img-cat" src="assets/category/categories2.png">
+   <p class="cat-types">Dance</p>
+       </ion-col>
+     <ion-col  class="col-cat" (click)="songtype(3)">
+         <img class="img-cat" src="assets/category/categories3.png">
+    <p class="cat-types">Film</p>
+       </ion-col>
+     <ion-col  class="col-cat" (click)="songtype(4)">
+         <img class="img-cat" src="assets/category/categories4.png">
+         <p class="cat-types">Photography</p>
+     </ion-col>
+     <ion-col  class="col-cat" (click)="songtype(7)">
+         <img class="img-cat" src="assets/category/categories5.png">
+         <p class="cat-types">Litreature</p>
+     </ion-col>
+     </ion-row>
+    <div *ngIf="showcat==false" >
+      <ion-row>
+        <ion-col class="col-cat" (click)="songtype(1)">
+            <img class="img-cat" src="assets/category/categories1.png">
+            <p class="cat-types">Music</p>
+        </ion-col>
+        <ion-col  class="col-cat" (click)="songtype(2)">
+            <img class="img-cat" src="assets/category/categories2.png">
+      <p class="cat-types">Dance</p>
+          </ion-col>
+        <ion-col  class="col-cat" (click)="songtype(3)">
+            <img class="img-cat" src="assets/category/categories3.png">
+       <p class="cat-types">Film</p>
+          </ion-col>
+        <ion-col  class="col-cat" (click)="songtype(4)">
+            <img class="img-cat" src="assets/category/categories4.png">
+            <p class="cat-types">Photography</p>
+        </ion-col>
+       
+        </ion-row>
+        <ion-row>
+           
+            <ion-col  class="col-cat" (click)="songtype(7)">
+                <img class="img-cat" src="assets/category/categories5.png">
+          <p class="cat-types">Litreature</p>
+              </ion-col>
+            <ion-col  class="col-cat" (click)="songtype(8)">
+                <img class="img-cat" src="assets/category/categories6.png">
+           <p class="cat-types">Art</p>
+              </ion-col>
+            <ion-col  class="col-cat" (click)="songtype(5)">
+                <img class="img-cat" src="assets/category/categories7.png">
+                <p class="cat-types">Freestyle</p>
+            </ion-col>
+            <ion-col  class="col-cat" (click)="songtype(9)">
+                <img class="img-cat" src="assets/category/categories8.png">
+                <p class="cat-types">Personality</p>
+            </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col  class="col-cat" (click)="songtype(6)">
+                    <img class="img-cat" src="assets/category/categories9.png">
+                    <p class="cat-types">Other</p>
+                </ion-col>
+            </ion-row>
+      </div>
+      </div>
+    
+    <div [ngSwitch]="pet">
+       
+      <div  *ngSwitchCase="'recentuploads'">
+        <loaderdata *ngIf="loadingdata=='on'" ></loaderdata>
+     
+        <ion-list  class="recent-upload"  >
+   <ion-row padding>
+   <p class="head-p"><span class="span-head">Recent Uploads </span> in {{categorytag}}</p>    
+  </ion-row>   
+ 
+  
+    <ion-row *ngFor="let value of recentdata;let i=index"  style="    margin-top: -10px;    margin-bottom: 26px;">
+   
+  
+      <div  class="image-tag">
+       
+        <img  style="width: 89%;" [src]="value.category_image_url">
+       </div>
+   
+      
+      
+    
+      <div class="img-box" >
+      <div class="img-content">
+        <div class="cat-div" (click)="viewvideo(i)"> 
+        
+          <img class="cat-icon" [src]="value.small_image_url">
+        </div>
+       
+        <div class="detail-grid">
+          
+        <div  style="margin-top: 6px;" class="detail-div">
+           
+           <p style="font-weight: bold;" class="music-type">{{value.usermedia_name}}</p>
+           <p class="title-type" style="    width: 80%;
+          
+           text-overflow: ellipsis;
+           white-space: nowrap;
+           overflow: hidden;">{{value.artforms}} </p>
+           <div class="star-div" (click)="openstar(value.usermediaid)"> <ionic3-star-rating 
+            activeIcon = "ios-star"
+            defaultIcon = "ios-star-outline"
+            activeColor = "rgb(228, 215, 38)" 
+            defaultColor = "#f4f4f4"
+            readonly="false"
+            [rating]="value.rating">
+        </ionic3-star-rating></div>
+        </div>
+        
+        <div style="text-align:right; " class="detail-div1">
+          <div class="author-box" (click)="authtap(i)">
+       
+          <p style="    height: 0px;font-weight: bold">{{value.user_display_name}}</p>
+          <p>{{value.usermedia_posted}}</p>
+          </div>
+        </div>
+        <div   class="detail-div userpic">
+        
+          <img style="border-radius: 35px;" class="cat-icon" [src]="value.user_avatar">
+        </div>
+        </div>
+
+      </div>
+      </div>
+      <div class="post-img">
+   <div class="social-img">
+     
+     <div class="header1" >
+        <img class="img-post" src="assets/Dashboard/share-gray.png">
+        <div class="share-div" (click)="tapshow(i)"></div>
+      </div>
+      <div class="header1" (click)="followartist(value.artist_id)">
+          <img class="img-post" src="assets/Dashboard/user.png">
+        </div>
+        <div class="header1" (click)="navigatetomsg(i)">
+            <img class="img-post" src="assets/Dashboard/msg.png">
+          </div>
+          <div class="header1" (click)="reportnavigate(i)">
+              <img class="img-post" src="assets/Dashboard/error.png">
+            </div>
+
+      </div>
+    </div>
+   
+    </ion-row>
+    <p style="text-align: center;">{{completedata}}</p>
+    <ion-infinite-scroll (ionInfinite)="loadMore($event)" loadingSpinner="bubbles" loadingText="Loading data...">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-list>
+    </div>
+      <ion-list *ngSwitchCase="'top_performers'">
+        <div class="cat-style">
+         <button (click)="filtercat()" class="category-style" ion-button fulll color="primary">FILTER BY CATEGORIES</button>
+       </div> 
+       <loaderdata *ngIf="loadingdata=='on'" ></loaderdata>
+       <ion-row style="    margin-top: -20px;" padding>
+          <p class="head-p"><span class="span-head">Top Performers </span> in All categories</p>    
+         </ion-row>  
+         
+       <div>
+       <ion-row *ngFor="let value of playerlist;let i=index"  style="    margin-top: -10px;    margin-bottom: 26px;">
+          <div class="image-tag">
+             
+              <img style="    width: 89%;" src="{{value.usermedia_path}}">
+             
+            </div>
+            <div class="img-box" >
+            <div class="img-content">
+             
+               <ion-row style="height: 105px;" (click)="viewvideotop(i)">
+                 <ion-col class="cols-style">
+                  0{{i+1}}
+                 </ion-col>
+               <ion-col style="text-align:end">
+                  <img class="
+                cat-icon1" [src]="value.covermediathumbnail">
+               </ion-col>
+                </ion-row>
+
+
+              <div class="detail-grid1">
+                
+              <div class="detail-div">
+                 <p style="font-weight: bold;" class="music-type">{{value.usermedia_name}}</p>
+                 <p class="title-type1">{{value.toptype}}</p>
+                 <ion-row class="star-div"> 
+                 <ion-col  col-2>
+                  <img style="height:13px;    margin: 4px 1px 2px -3px;" src="assets/Dashboard/rating.png">
+                </ion-col>
+                <ion-col col-10>
+                 <p class="count-like">{{value.totalrating}}</p>
+                </ion-col>
+                </ion-row>
+              </div>
+              <div class="image-box" >
+                <ion-row (click)="authtap1(i)">
+                  <ion-col class="user_name_topperformers" col-8 style="    text-align: end;">
+                    <p> {{value.user_display_name}}</p></ion-col>
+                  <ion-col col-3 style="margin-top: -2px;">
+                   
+                      <img  class="userimage1" src="{{value.user_avatar}}">
+                     
+                    </ion-col>
+                  </ion-row> 
+                <ion-row style="    margin-top: -32px;" (click)="openstar(value.usermedia_id)" >
+                  <ion-col col-3>
+                        <p style="       margin-left: 9px;
+                        display: inline-block;    font-size: 1.5rem;
+                        position: absolute; right: -14px;">Vote</p>
+                  </ion-col>
+                  <ion-col col-9 style="padding: 9px;margin-top: 3px;display: flex;
+                  justify-content: center;">
+                      <ionic3-star-rating  
+                      activeIcon = "ios-star"
+                      defaultIcon = "ios-star-outline"
+                      activeColor = "rgb(228, 215, 38)" 
+                      defaultColor = "rgb(228, 215, 38)"
+                      readonly="false"
+                      [rating]="value.rate" >
+                  </ionic3-star-rating>
+                    </ion-col>
+                  </ion-row>
+              </div>
+              
+              </div>
+      
+            </div>
+            </div>
+            <div class="post-img">
+         <div class="social-img">
+           
+           <div class="header1" >
+              <img class="img-post" src="assets/Dashboard/share-gray.png">
+              <div class="share-div" (click)="tapshowtop(i)"></div>
+            </div>
+            <div class="header1" (click)="followartist(value.artist_id)">
+                <img class="img-post" src="assets/Dashboard/user.png">
+              </div>
+              <div class="header1" (click)="navigatetomsgtop(i)">
+                  <img class="img-post" src="assets/Dashboard/msg.png">
+                </div>
+                <div class="header1" (click)="reportnavigate(i)">
+                    <img class="img-post" src="assets/Dashboard/error.png">
+                  </div>
+      
+            </div>
+          </div>
+          </ion-row>
+        </div>
+        
+        
+      </ion-list>
+      <ion-list *ngSwitchCase="'trending_items'">
+        
+        <div  *ngSwitchCase="'trending_items'">
+          <loaderdata *ngIf="loadingdata=='on'" ></loaderdata>
+          
+        <ion-list *ngIf="loadingdata=='off'" class="recent-upload"  >
+           
+     <ion-row padding>
+     <p class="head-p"><span class="span-head">Trending Items </span> in {{categorytag}}</p>    
+    </ion-row>   
+   
+  
+      <ion-row *ngFor="let value of recentdata;let i=index"  style="    margin-top: -10px;    margin-bottom: 26px;">
+   
+  
+        <div  class="image-tag">
+         
+          <img  style="width: 89%;" [src]="value.category_image_url">
+         </div>
+     
+        
+        
+      
+        <div class="img-box" >
+        <div class="img-content">
+          <div class="cat-div" (click)="viewvideo(i)"> 
+          
+            <img class="cat-icon" [src]="value.small_image_url">
+          </div>
+         
+          <div class="detail-grid">
+            
+          <div  style="margin-top: 6px;" class="detail-div" (click)="openstar(value.usermediaid)">
+            
+             <p style="font-weight: bold;" class="music-type">{{value.usermedia_name}}</p>
+             <p class="title-type" style="width:100%; ">{{value.artforms}}</p>
+             <div class="star-div"> <ionic3-star-rating 
+              activeIcon = "ios-star"
+              defaultIcon = "ios-star-outline"
+              activeColor = "rgb(228, 215, 38)" 
+              defaultColor = "#f4f4f4"
+              readonly="false"
+              [rating]="value.rating">
+          </ionic3-star-rating></div>
+          </div>
+          
+          <div style="text-align:right; " class="detail-div1">
+            <div class="author-box" (click)="authtap(i)">
+            
+            <p style="    height: 0px;font-weight: bold">{{value.user_display_name}}</p>
+            <p>{{value.usermedia_posted}}</p>
+            </div>
+          </div>
+          <div   class="detail-div userpic">
+          
+            <img style="border-radius: 35px;" class="cat-icon" [src]="value.user_avatar">
+          </div>
+          </div>
+  
+        </div>
+        </div>
+        <div class="post-img">
+     <div class="social-img">
+       
+       <div class="header1" >
+          <img class="img-post" src="assets/Dashboard/share-gray.png">
+          <div class="share-div" (click)="tapshow(value.artist_id)"></div>
+        </div>
+        <div class="header1" (click)="followartist(value.artist_id)">
+            <img class="img-post" src="assets/Dashboard/user.png">
+          </div>
+          <div class="header1" (click)="navigatetomsg()">
+              <img class="img-post" src="assets/Dashboard/msg.png">
+            </div>
+            <div class="header1" (click)="reportnavigate(i)">
+                <img class="img-post" src="assets/Dashboard/error.png">
+              </div>
+  
+        </div>
+      </div>
+     
+      </ion-row>
+      <p style="text-align: center;">{{completedata}}</p>
+      <ion-infinite-scroll (ionInfinite)="loadMore($event)" loadingSpinner="bubbles" loadingText="Loading data...">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </ion-list>
+      </div>
+        
+        </ion-list>
+      </div>
+     
+</ion-content> -->
+<!--
+  Generated template for the DashboardPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    
+   <ion-row no-padding>
+    <ion-col col-3 no-padding>
+        <ion-buttons left style="    width: 19px;">
+            <button ion-button menuToggle>
+            <ion-icon item-start>
+              <img class="navbar-icon" item-left src="assets/Menu/navbar.png">
+            </ion-icon>
+             </button>
+        </ion-buttons>
+    </ion-col>
+    <ion-col style="text-align:center" col-9 no-padding>
+        <img  class="img-style"   item-centred src="assets/welcome/logoart.png">
+    </ion-col>
+   </ion-row>
+   <ion-row no-padding>
+      <div class="segment-class">
+          <ion-segment  [(ngModel)]="pet" (ionChange)=onSegmentChanged($event)>
+              <ion-segment-button  class="seg-tab" value="recentuploads" >
+          Recent Uploads
+              </ion-segment-button>
+              <hr class="divider-seg">
+              <ion-segment-button class="seg-tab" value="top_performers" >
+           Top Performers
+              </ion-segment-button>
+              <hr class="divider-seg">
+              <ion-segment-button class="seg-tab" value="trending_items" >
+                  Trending Items
+                      </ion-segment-button>
+            </ion-segment>
+          </div>
+   </ion-row>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+   
+    <div *ngIf="catshow==true" id="categorylist" class="category-list" >
+        <ion-row style="    padding: 6px;">
+       <ion-col style="font-weight: 500;    font-weight: bold;font-size: 1.6rem;">Categories</ion-col>
+      
+       <ion-col *ngIf="showbutton==true" style="font-weight: 500;    font-weight: bold;font-size: 1.6rem;" (click)="refreshpage()">Back</ion-col>
+       <ion-col *ngIf="showcat==true" (click)="showcatevent(1)" class="prop-see" >See All</ion-col>
+       <ion-col *ngIf="showcat==false" (click)="showcatevent(2)" class="prop-see" >Close</ion-col>
+     </ion-row>
+     <ion-row  *ngIf="showcat==true"  style="margin-top: -8px;">
+       <ion-col class="col-cat" (click)="songtype(1)">
+         <img class="img-cat" src="assets/category/categories1.png">
+         <p class="cat-types">Music</p>
+     </ion-col>
+     <ion-col  class="col-cat" (click)="songtype(2)">
+         <img class="img-cat" src="assets/category/categories2.png">
+   <p class="cat-types">Dance</p>
+       </ion-col>
+     <ion-col  class="col-cat" (click)="songtype(3)">
+         <img class="img-cat" src="assets/category/categories3.png">
+    <p class="cat-types">Film</p>
+       </ion-col>
+     <ion-col  class="col-cat" (click)="songtype(4)">
+         <img class="img-cat" src="assets/category/categories4.png">
+         <p class="cat-types">Photography</p>
+     </ion-col>
+     <ion-col  class="col-cat" (click)="songtype(7)">
+         <img class="img-cat" src="assets/category/categories5.png">
+         <p class="cat-types">Litreature</p>
+     </ion-col>
+     </ion-row>
+    <div *ngIf="showcat==false" >
+      <ion-row>
+        <ion-col class="col-cat" (click)="songtype(1)">
+            <img class="img-cat" src="assets/category/categories1.png">
+            <p class="cat-types">Music</p>
+        </ion-col>
+        <ion-col  class="col-cat" (click)="songtype(2)">
+            <img class="img-cat" src="assets/category/categories2.png">
+      <p class="cat-types">Dance</p>
+          </ion-col>
+        <ion-col  class="col-cat" (click)="songtype(3)">
+            <img class="img-cat" src="assets/category/categories3.png">
+       <p class="cat-types">Film</p>
+          </ion-col>
+        <ion-col  class="col-cat" (click)="songtype(4)">
+            <img class="img-cat" src="assets/category/categories4.png">
+            <p class="cat-types">Photography</p>
+        </ion-col>
+       
+        </ion-row>
+        <ion-row>
+           
+            <ion-col  class="col-cat" (click)="songtype(7)">
+                <img class="img-cat" src="assets/category/categories5.png">
+          <p class="cat-types">Litreature</p>
+              </ion-col>
+            <ion-col  class="col-cat" (click)="songtype(8)">
+                <img class="img-cat" src="assets/category/categories6.png">
+           <p class="cat-types">Art</p>
+              </ion-col>
+            <ion-col  class="col-cat" (click)="songtype(5)">
+                <img class="img-cat" src="assets/category/categories7.png">
+                <p class="cat-types">Freestyle</p>
+            </ion-col>
+            <ion-col  class="col-cat" (click)="songtype(9)">
+                <img class="img-cat" src="assets/category/categories8.png">
+                <p class="cat-types">Personality</p>
+            </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col  class="col-cat" (click)="songtype(6)">
+                    <img class="img-cat" src="assets/category/categories9.png">
+                    <p class="cat-types">Other</p>
+                </ion-col>
+            </ion-row>
+      </div>
+      </div>
+    
+    <div [ngSwitch]="pet" >
+       
+      <div  *ngSwitchCase="'recentuploads'">
+        <loaderdata *ngIf="loadingdata=='on'" ></loaderdata>
+      <!-- <ion-list *ngIf="loadingdata=='off'" class="recent-upload"  > -->
+        <ion-list  class="recent-upload"  >
+            <ion-row no-padding no-margin style="width: 90%; margin-left: 20px;">  
+                <ion-col no-padding no-margin style="margin-top: 14px;">       
+                <ion-searchbar [(ngModel)]="searchMagazineString" (input)="searchMagazines($event)" placeholder="Search"  no-shadow no-border no-margin no-padding>
+              </ion-searchbar>  
+                </ion-col>
+            </ion-row>
+
+
+
+   <ion-row padding>
+   <!-- <p class="head-p"><span class="span-head">Recent Upload </span> in {{categorytag}}</p>     -->
+   <p class="head-p"><span class="span-head">{{tiles}} </span> in {{categorytag}}</p>
+  </ion-row>   
+ 
+  
+    <ion-row *ngFor="let value of recentdata;let i=index"  style="    margin-bottom: 26px;">
+   
+  
+      <div  class="image-tag">
+       
+        <img  style="width: 89%;" [src]="value.category_image_url">
+       </div>
+     
+   
+      
+      
+    
+      <div class="img-box" >
+      <div class="img-content">
+        <div class="cat-div" (click)="viewvideo(i)"> 
+          <ion-row>
+           <ion-col col-8>
+             
+            <img *ngIf="value.media_type=='video/mp4'||value.media_type=='youtube' || value.media_type=='audio/mpeg' || value.media_type=='audio/mp3'" class="play-style" src="assets/play.png">
+            </ion-col>
+            <ion-col col-4>
+         
+          <img class="cat-icon" [src]="value.small_image_url">
+            </ion-col>
+        </ion-row>
+        </div>
+
+       <div class="details" >
+        <ion-row>
+          <ion-col col-5>
+            <div class="details-1">
+              
+              <p class="title">{{value.usermedia_name}}</p>
+              <p class="arts">{{value.artforms}} </p>
+              <!-- <div *ngIf="user_display_name!=value.user_display_name" class="stars" (click)="openstar(value.rating,value.usermediaid,value.user_display_name)"> <ionic3-star-rating  -->
+                <div *ngIf="user_display_name!=value.user_display_name" class="stars" (click)="openstar(value.usermediaid)"> <ionic3-star-rating 
+                activeIcon = "ios-star"
+                defaultIcon = "ios-star-outline"
+                activeColor = "rgb(228, 215, 38)" 
+                defaultColor = "#f4f4f4"
+                readonly="false"
+                [rating]="value.rating">
+              </ionic3-star-rating></div>
+              
+              <div *ngIf="user_display_name==value.user_display_name" class="stars" > <ionic3-star-rating 
+                activeIcon = "ios-star"
+                defaultIcon = "ios-star-outline"
+                activeColor = "rgb(228, 215, 38)" 
+                defaultColor = "#f4f4f4"
+                readonly="true"
+                [rating]="value.rating">
+              </ionic3-star-rating>
+              </div>
+            </div>
+          </ion-col>
+      
+            <!-- <ion-col  col-1>
+             <img src="assets/Dashboard/rating.png" class="star-img-1">
+           </ion-col>
+           <ion-col col-2>
+            <p class="count-like">{{value.totalrating}}</p>
+           </ion-col> -->
+     
+          <ion-col col-4>
+            <div class="details-2">
+            <p class="author-name">{{value.user_display_name}}</p>
+            <!-- <p class="post-time">{{value.usermedia_posted}}</p> -->
+            </div>
+          </ion-col>
+          <ion-col col-3>
+            <figure class="author-img">
+                <img (click)="authtap(i,value.user_display_name)" style="border-radius: 35px;" class="custom-cat-icon" [src]="value.user_avatar">
+            </figure>
+          </ion-col>
+        </ion-row>         
+      </div>
+
+        <!-- <div class="detail-grid">
+          
+        <div  style="margin-top: 6px;" class="detail-div">
+           
+           <p style="font-weight: bold;" class="music-type">{{value.usermedia_name}}</p>
+           <p class="title-type" style="    width: 80%;
+          
+           text-overflow: ellipsis;
+           white-space: nowrap;
+           overflow: hidden;">{{value.artforms}} </p>
+
+           
+           <div *ngIf="user_display_name!=value.user_display_name" class="star-div" (click)="openstar(value.rating,value.usermediaid,value.user_display_name)"> <ionic3-star-rating 
+            activeIcon = "ios-star"
+            defaultIcon = "ios-star-outline"
+            activeColor = "rgb(228, 215, 38)" 
+            defaultColor = "#f4f4f4"
+            readonly="false"
+            [rating]="value.rating">
+        </ionic3-star-rating></div>
+      
+        <div *ngIf="user_display_name==value.user_display_name" class="star-div" > <ionic3-star-rating 
+          activeIcon = "ios-star"
+          defaultIcon = "ios-star-outline"
+          activeColor = "rgb(228, 215, 38)" 
+          defaultColor = "#f4f4f4"
+          readonly="true"
+          [rating]="value.rating">
+      </ionic3-star-rating></div>
+      </div>
+        
+        <div style="text-align:right; " class="detail-div1">
+          <div class="author-box" >
+           
+          <p  style="    height: 0px;font-weight: bold">{{value.user_display_name}}</p>
+          <p>{{value.usermedia_posted}}</p>
+          </div>
+        </div>
+        <div   class="detail-div userpic">
+        
+          <img (click)="authtap(i,value.user_display_name)" style="border-radius: 35px;" class="cat-icon" [src]="value.user_avatar">
+        </div>
+        </div> -->
+
+      </div>
+      </div>
+      <div class="post-img">
+   <div class="social-img">
+     
+     <div class="header1" >
+        <img class="img-post" src="assets/Dashboard/share-gray.png">
+        <div class="share-div" (click)="tapshow(i)"></div>
+      </div>
+      <div class="header1" (click)="followartist(value.artist_id,value.user_display_name)">
+          <img class="img-post" src="assets/Dashboard/user.png">
+        </div>
+        <div class="header1" (click)="navigatetomsg(i)">
+            <img class="img-post" src="assets/Dashboard/msg.png">
+          </div>
+          <div class="header1" (click)="reportnavigate(i)">
+              <img class="img-post" src="assets/Dashboard/error.png">
+            </div>
+
+      </div>
+    </div>
+   
+    </ion-row>
+    <p style="text-align: center;">{{completedata}}</p>
+    <ion-infinite-scroll (ionInfinite)="loadMore($event)" loadingSpinner="bubbles" loadingText="Loading data...">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-list>
+    </div>
+      <ion-list *ngSwitchCase="'top_performers'">
+       <div class="cat-style">
+         <button (click)="filtercat()" class="category-style" ion-button fulll color="primary">FILTER BY CATEGORIES</button>
+       </div>
+       <loaderdata *ngIf="loadingdata=='on'" ></loaderdata>
+       <ion-row style="    margin-top: -20px;" padding>
+          <p class="head-p"><span class="span-head">Top Performers </span> in All categories</p>    
+         </ion-row>  
+         
+       <div>
+       <ion-row *ngFor="let value of playerlist;let i=index"  style="        margin-bottom: 26px;">
+          <div class="image-tag">
+             
+              <img style="    width: 89%;" src="{{value.usermedia_path}}">
+              <!-- <img style="    width: 89%;" src="{{value.media_thumbnail_url}}"> -->
+              
+            </div>
+            <div class="img-box" >
+            <div class="img-content">
+             
+               <ion-row style="height: 105px;" (click)="viewvideotop(i)">
+                 <ion-col class="cols-style">
+                  0{{i+1}} 
+                 </ion-col>
+               <ion-col style="text-align:end">
+                <ion-row>
+                  <ion-col>
+                <img style="height: 47px;
+                position: absolute;
+                top: 100%;
+                
+                right: 79%;
+                " *ngIf="value.usermedia_type=='video/mp4'||value.usermedia_type=='youtube' || value.usermedia_type=='audio/mpeg' || value.usermedia_type=='audio/mp3' " src="assets/play.png">
+                 </ion-col>
+                 <ion-col>
+                <img class="
+                cat-icon1" [src]="value.covermediathumbnail">
+                </ion-col>
+                </ion-row>
+               </ion-col>
+                </ion-row>
+
+
+                <!-- DETAILS-TOP -->
+                <div class="details-top" >
+                  <ion-row>
+                    <ion-col col-6>
+                      <div class="details-top-1">
+                        <p class="title">{{value.usermedia_name}}</p>
+                        <p class="arts">{{value.toptype}} </p>
+                        <ion-row class="number-star"> 
+                          <ion-col  col-2>
+                           <img src="assets/Dashboard/rating.png" class="star-img-1">
+                         </ion-col>
+                         <ion-col col-10>
+                          <p class="count-like">{{value.totalrating}}</p>
+                         </ion-col>
+                         </ion-row>
+                      </div>
+                    </ion-col>
+                    <ion-col col-6>
+                      <div class="details-top-2">
+                        <ion-row>
+                          <ion-col col-12>
+                              <p class="author-name">{{value.user_display_name}} </p>
+                              <figure class="author-img">
+                                  <img (click)="authtap1(i,value.user_display_name)" style="border-radius: 35px;" class="custom-cat-icon-1" [src]="value.user_avatar">
+                                 </figure>
+                          </ion-col>
+                        </ion-row>
+                      
+                     
+                        <ion-row (click)="openstar(value.usermedia_id)">
+                            <ion-col col-3>
+                             <p>Vote</p>
+                            </ion-col>
+                            <ion-col col-9>
+                              <div class="stars-1">
+                                <ionic3-star-rating *ngIf="user_display_name!=value.user_display_name" 
+                                activeIcon = "ios-star"
+                                defaultIcon = "ios-star-outline"
+                                activeColor = "rgb(228, 215, 38)" 
+                                defaultColor = "rgb(228, 215, 38)"
+                                readonly="false"
+                                [rating]="value.rate" >
+                            </ionic3-star-rating>
+                           
+                            <ionic3-star-rating *ngIf="user_display_name==value.user_display_name" 
+                                activeIcon = "ios-star"
+                                defaultIcon = "ios-star-outline"
+                                activeColor = "rgb(228, 215, 38)" 
+                                defaultColor = "rgb(228, 215, 38)"
+                                readonly="true"
+                                [rating]="value.rate" >
+                            </ionic3-star-rating>
+                          </div>
+                          </ion-col>
+                        </ion-row>
+                      
+                      </div>
+                    </ion-col>
+                  </ion-row>         
+                </div>
+                <!-- End DETAILS-TOP -->
+               
+ <!-- <div class="detail-grid1">
+                
+              <div class="detail-div">
+                 <p style="font-weight: bold;" class="music-type">{{value.usermedia_name}}</p>
+                 <p class="title-type1">{{value.toptype}}</p>
+                 <ion-row class="star-div"> 
+                 <ion-col  col-2>
+                  <img style="height:13px;    margin: 4px 1px 2px -3px;" src="assets/Dashboard/rating.png">
+                </ion-col>
+                <ion-col col-10>
+                 <p class="count-like">{{value.totalrating}}</p>
+                </ion-col>
+                </ion-row>
+              </div>
+              <div class="image-box" >
+                <ion-row (click)="authtap1(i,value.user_display_name)">
+                  <ion-col class="user_name_topperformers" col-8 style="    text-align: end;">
+                    <p> {{value.user_display_name}}</p></ion-col>
+                  <ion-col col-3 style="margin-top: -2px;">
+                   
+                      <img  class="userimage1" src="{{value.user_avatar}}">
+                     
+                    </ion-col>
+                  </ion-row> 
+                <ion-row style="    margin-top: -32px;" (click)="openstar(value.usermedia_id)" >
+                  <ion-col col-3>
+                        <p style="       margin-left: 9px;
+                        display: inline-block;    font-size: 1.5rem;
+                        position: absolute; right: -14px;">Vote</p>
+                  </ion-col>
+                  <ion-col col-9 style="padding: 9px;margin-top: 3px;display: flex;
+                  justify-content: center;">
+                      <ionic3-star-rating *ngIf="user_display_name!=value.user_display_name" 
+                      activeIcon = "ios-star"
+                      defaultIcon = "ios-star-outline"
+                      activeColor = "rgb(228, 215, 38)" 
+                      defaultColor = "rgb(228, 215, 38)"
+                      readonly="false"
+                      [rating]="value.rate" >
+                  </ionic3-star-rating>
+                   
+                  <ionic3-star-rating *ngIf="user_display_name==value.user_display_name" 
+                      activeIcon = "ios-star"
+                      defaultIcon = "ios-star-outline"
+                      activeColor = "rgb(228, 215, 38)" 
+                      defaultColor = "rgb(228, 215, 38)"
+                      readonly="true"
+                      [rating]="value.rate" >
+                  </ionic3-star-rating>
+
+                    </ion-col>
+                  </ion-row>
+              </div>
+              
+              </div>  -->
+      
+            </div>
+            </div>
+            <div class="post-img">
+         <div class="social-img">
+           
+           <div class="header1" >
+              <img class="img-post" src="assets/Dashboard/share-gray.png">
+              <div class="share-div" (click)="tapshowtop(i)"></div>
+            </div>
+            <div class="header1" (click)="followartist(value.artist_id,value.user_display_name)">
+                <img class="img-post" src="assets/Dashboard/user.png">
+              </div>
+              <div class="header1" (click)="navigatetomsgtop(i)">
+                  <img class="img-post" src="assets/Dashboard/msg.png">
+                </div>
+                <div class="header1" (click)="reportnavigate(i)">
+                    <img class="img-post" src="assets/Dashboard/error.png">
+                  </div>
+      
+            </div>
+          </div>
+          </ion-row>
+        </div>
+        <!-- <loaderdata></loaderdata> -->
+        
+      </ion-list>
+      <ion-list *ngSwitchCase="'trending_items'">
+        
+        <div  *ngSwitchCase="'trending_items'">
+          <loaderdata *ngIf="loadingdata=='on'" ></loaderdata>
+          
+        <ion-list *ngIf="loadingdata=='off'" class="recent-upload"  >
+           
+     <ion-row padding>
+     <p class="head-p"><span class="span-head">Trending Items </span> in {{categorytag}}</p>    
+    </ion-row>   
+   
+   <!-- <ion-row *ngFor="let value of fakedata"  style="    margin-top: -10px;    margin-bottom: 26px;">
+      <div class="image-tag">
+         
+          <img style="    width: 89%;" src="assets/Dashboard/thumbnail.png">
+         
+        </div>
+        <div class="img-box" >
+        <div class="img-content">
+          <div class="cat-div" (click)="viewvideo()"> 
+            <img class="
+            cat-icon" src="assets/Dashboard/artist_profile1.png">
+          </div>
+         
+          <div class="detail-grid">
+            
+          <div style="margin-top: 6px;" class="detail-div">
+             <p style="font-weight: bold;" class="music-type">King Cay Music</p>
+             <p class="title-type">Music / Hip Hop/ Rap</p>
+             <div class="star-div"> <ionic3-star-rating 
+              activeIcon = "ios-star"
+              defaultIcon = "ios-star-outline"
+              activeColor = "rgb(228, 215, 38)" 
+              defaultColor = "#f4f4f4"
+              readonly="true"
+              [rating]="5">
+          </ionic3-star-rating></div>
+          </div>
+          
+          <div style="text-align:right; " class="detail-div1">
+            <div class="author-box" (click)="authtap()">
+            <p style="    height: 0px;font-weight: bold">King Cay</p>
+            <p>10 mins ago</p>
+            </div>
+          </div>
+          <div   class="detail-div userpic">
+            <img class="userimage" src="assets/tabsicon/propic.jpg">
+          </div>
+          </div>
+  
+        </div>
+        </div>
+        <div class="post-img">
+     <div class="social-img">
+       
+       <div class="header1" >
+          <img class="img-post" src="assets/Dashboard/share-gray.png">
+          <div class="share-div" (click)="tapshow()"></div>
+        </div>
+        <div class="header1" (click)="followartist()">
+            <img class="img-post" src="assets/Dashboard/user.png">
+          </div>
+          <div class="header1" (click)="navigatetomsg()">
+              <img class="img-post" src="assets/Dashboard/msg.png">
+            </div>
+            <div class="header1" (click)="reportnavigate()">
+                <img class="img-post" src="assets/Dashboard/error.png">
+              </div>
+  
+        </div>
+      </div>
+      </ion-row> -->
+      <ion-row *ngFor="let value of recentdata;let i=index"  style="    margin-top: -10px;    margin-bottom: 26px;">
+   
+  
+        <div  class="image-tag">
+         
+          <img  style="width: 89%;" [src]="value.category_image_url">
+         </div>
+     
+        
+        
+      
+        <div class="img-box" >
+        <div class="img-content">
+          <div class="cat-div" (click)="viewvideo(i)"> 
+          
+            <img class="cat-icon" [src]="value.small_image_url">
+          </div>
+         
+          <div class="detail-grid">
+            
+          <div   style="margin-top: 6px;" class="detail-div" (click)="openstar(value.usermediaid)">
+             <!-- <p style="font-weight: bold;" class="music-type">{{value.usermedia_name}}</p>
+             <p class="title-type">{{value.artforms}}</p> -->
+             <p style="font-weight: bold;" class="music-type">{{value.usermedia_name}}</p>
+             <p class="title-type" style="width:100%; ">{{value.artforms}}</p>
+             <div *ngIf="user_display_name!=value.user_display_name"  class="star-div"> <ionic3-star-rating 
+              activeIcon = "ios-star"
+              defaultIcon = "ios-star-outline"
+              activeColor = "rgb(228, 215, 38)" 
+              defaultColor = "#f4f4f4"
+              readonly="false"
+              [rating]="value.rating">
+          </ionic3-star-rating></div>
+
+          <div *ngIf="user_display_name==value.user_display_name" class="star-div" > <ionic3-star-rating 
+            activeIcon = "ios-star"
+            defaultIcon = "ios-star-outline"
+            activeColor = "rgb(228, 215, 38)" 
+            defaultColor = "#f4f4f4"
+            readonly="true"
+            [rating]="value.rating">
+        </ionic3-star-rating></div>
+          </div>
+          
+          <div style="text-align:right; " class="detail-div1">
+            <div class="author-box" >
+            <!-- <p style="    height: 0px;font-weight: bold">{{value.user_display_name}}</p>
+            <p>{{value.postedtime}}</p> -->
+            <p style="    height: 0px;font-weight: bold">{{value.user_display_name}}</p>
+            <p>{{value.usermedia_posted}}</p>
+            </div>
+          </div>
+          <div   class="detail-div userpic">
+          
+            <img (click)="authtap(i,value.user_display_name)" style="border-radius: 35px;" class="cat-icon" [src]="value.user_avatar">
+          </div>
+          </div>
+  
+        </div>
+        </div>
+        <div class="post-img">
+     <div class="social-img">
+       
+       <div class="header1" >
+          <img class="img-post" src="assets/Dashboard/share-gray.png">
+          <div class="share-div" (click)="tapshow(value.artist_id)"></div>
+        </div>
+        <div class="header1" (click)="followartist(value.artist_id,user_display_name)">
+            <img class="img-post" src="assets/Dashboard/user.png">
+          </div>
+          <div class="header1" (click)="navigatetomsg()">
+              <img class="img-post" src="assets/Dashboard/msg.png">
+            </div>
+            <div class="header1" (click)="reportnavigate(i)">
+                <img class="img-post" src="assets/Dashboard/error.png">
+              </div>
+  
+        </div>
+      </div>
+     
+      </ion-row>
+      <p style="text-align: center;">{{completedata}}</p>
+      <ion-infinite-scroll (ionInfinite)="loadMore($event)" loadingSpinner="bubbles" loadingText="Loading data...">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </ion-list>
+      </div>
+        
+        </ion-list>
+      </div>
+     
+</ion-content>

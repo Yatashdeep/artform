@@ -1,0 +1,66 @@
+<!--
+  Generated template for the CategorytabpagePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+   
+          <ion-buttons left style="    width: 19px;">
+              <button ion-button menuToggle>
+              <ion-icon item-start>
+                <img class="navbar-icon" item-left src="assets/Menu/navbar.png">
+              </ion-icon>
+               </button>
+          </ion-buttons>
+
+    <ion-title [style.marginRight] = "id ==1 ? '77px' :'0px'" style="text-align:center">Categories</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <!-- <div *ngIf="loadingdata=='on'" >
+    <div *ngFor="let fake of fakeUsers">
+        <div  class="div-parent"   >
+          
+          <div   class="div-left" >
+        
+            <div class="animate-imagebox" width="80"  ></div>
+            </div>
+            <div class="div-right" >
+           
+              </div>
+              
+             
+            
+         
+         
+            </div>
+          </div> 
+          </div> -->
+    <ion-list style="    height: 100%;">
+        <div style="    margin-bottom: 13px;" *ngFor="let value of category;let i=index">
+       <div [style.backgroundImage]="'url('+ value.Category.category_image_url +')'" class="row-image"  (click)="cattap(i)">
+      <ion-row style="height: 77px;">
+        <ion-col class="col-style" col-2>
+          <img class="img-size" [src]="value.Category.category_small_image_url">
+        </ion-col>
+        <ion-col class="col-cat" col-7>
+          <p class="p-cat">{{value.Category.category_class}}</p>
+          <img id="tickshow4" class="tree-img" src="assets/tree-cat/chevron.png">
+        </ion-col>
+        
+      </ion-row>
+      
+       </div>
+      
+        </div>
+      
+      
+      
+      </ion-list>
+</ion-content>

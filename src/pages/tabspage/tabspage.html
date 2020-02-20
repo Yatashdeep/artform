@@ -1,0 +1,15 @@
+<!--
+  Generated template for the TabspagePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-tabs #myTabs (tap)="tapped()">
+  <div style="height:10px;width:40px;background-color:red" ></div>
+  <ion-tab [root]="tab1Root" (click)="myMethod()"  tabTitle="Home" tabIcon="custom-home" ></ion-tab>
+  <ion-tab  [root]="tab2Root" tabTitle="Upload" tabIcon="custom-upload"></ion-tab>
+  <ion-tab  [root]="tab3Root" tabTitle="Categories" tabIcon="custom-category" ></ion-tab>
+  <ion-tab style="font-size:1.2rem " [root]="tab4Root"  tabTitle="Competitions" tabIcon="custom-price"></ion-tab>
+   <ion-tab  [root]="tab5Root"   tabTitle="Profile" tabIcon="custom-propic" tabsHideOnSubPages="true"></ion-tab>
+  <!-- <ion-tab   [root]="tab5Root" tabTitle="Profile" tabIcon="custom-propic" tabsHideOnSubPages="true"></ion-tab> -->
+</ion-tabs>

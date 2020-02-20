@@ -1,0 +1,403 @@
+page-commentsbox {
+    .butt-style1{
+        
+        color: black;
+        right: 5px;
+        height: 52px;
+        width: 29px;
+        z-index: 1;
+        }
+    .back-img{
+        background: url(../assets/Dashboard/thumbnail.png) no-repeat;
+        background-size: cover;
+        height: 244px;
+    }
+    .img-style{
+        display: inline-block;
+        font-size: 1.7em;
+        color: #fff;
+        margin-left: 10px;
+        margin-top: 5px;
+    }
+    .img-pro{
+        height: 33px;
+        margin-right: 7px;
+        margin-top: 1px;
+    }
+    .img-centre{
+        display: flex;
+        justify-content: center;
+            display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 8px;
+    }
+    .col-style{
+        display: flex;
+        justify-content: flex-end;
+    }
+    .number-icon{
+        font-size: 3.4rem;
+        font-family: AvenirLTStd-Heavy;
+        color: #fff;
+        margin-top: 75px;
+        margin-bottom: 47px;
+        margin-left: 12px;
+    }
+    .city-style{
+        margin-top: -48px;
+        margin-left: 12px;
+        color: #fff
+    }
+    .cat-style{
+        margin-top: -10px;
+        margin-left: 12px;
+        color: #fff;
+        font-family: AvenirLTStd-Book;
+        font-size: 1.2rem;
+    }
+    .row-style{
+        margin-top: -6px;
+        margin-left: 10px;
+    }
+    .rate-style{
+       
+       
+        height: 17px;
+        margin-top: 2px;
+    }
+    .points-earn{
+    
+        margin-top: 5px;
+        color:#fff;
+        margin-left: 7px;
+    }
+    .grid{
+        display:grid;
+    
+    }
+    .rate-style1{
+        display: flex;
+        justify-content: center;
+    
+    }
+    .comments-style{
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 76px;
+    }
+    .expand-img{
+        height: 19px;
+        margin-right: 10px;
+    }
+    .img-style{
+        // height: 27px;
+        // border-radius: 29px;
+        height: 27px;
+        border-radius: 50%;
+        width: 27px;
+    }
+    .user-style{
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 5px;
+        margin-top: 5px;
+        margin-right: 7px;
+    }
+    .ionic3-star-rating[_ngcontent-c0] .button[_ngcontent-c0] ion-icon[_ngcontent-c0] {
+        font-size: 19px !important;
+     }
+     .ionic3-star-rating[_ngcontent-c0] .button[_ngcontent-c0] {
+        height: 23px;
+        background: none;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        width: 9px !important;
+     }
+     .vote-p{
+         
+         color: #fff;
+         margin-right: 5px;
+         margin-top: 10px;
+     }
+     .pro-name
+     {
+        color: #fff;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        // width: 118px;
+     }
+     .vote-style{
+        display: FLEX;
+        justify-content: flex-end;
+        margin-top: -13px;
+     }
+     .item-input{
+        width: 91%;
+        background-color: #E9E9E9;
+        margin-bottom: 14px;
+        border-radius: 5px;
+        height: 43px;
+        margin-top:10px; 
+    }
+    .icon-img{
+       
+        height: 20px;
+        
+        margin-left: 10px;
+    
+    }
+    .name-style{
+        margin-top: -2px;
+        margin-left: -30px;
+        font-family: AvenirLTStd-Heavy
+    }
+    .para-style{
+        margin-left: -30px;
+        margin-top: -9px;
+        color: #979797;
+    }
+    
+    .icon-pro{
+        // height: 42px;
+        // border-radius: 30px;
+        // margin-left: 14px;
+        height: 39px;
+        border-radius: 50%;
+        margin-left: 14px;
+        width: 39px;
+    }
+    .icon-pro1{
+        height: 42px;
+        border-radius: 30px;
+        margin-left: 5px;
+    }
+    .footer-style{
+        display: flex;
+        justify-content: center;
+        background-color: #fff;
+    }
+    .lat-style{
+        font-family: AvenirLTStd-Heavy;
+        margin-left: 14px;
+        margin-top: 6px;
+        font-size: 1.6rem;
+    }
+    .bold-p{
+        font-family: AvenirLTStd-Heavy;
+    }
+    .text-input::-moz-placeholder {
+        color:#000 ;
+      }
+      
+      .text-input:-ms-input-placeholder {
+        color:#000 ;
+      }
+      
+      .text-input::-webkit-input-placeholder {
+        text-indent: 0;
+        color:#000;
+      }
+      .div-left{
+        width: 100%;
+    height: 100%;
+    float: left;
+   
+    padding-left: 19px;
+    padding-right: 19px;
+    padding-top: 7px;
+      }
+      .div-middle{
+          width:55%;
+          height:100%;
+          float:left;
+          padding-left: 5px;
+          padding-top:19px
+      }
+      .div-right{
+          width:20%;
+          height:100%;
+          float:right;
+         margin-top: 151px;
+    margin-left: 28px; 
+    position: absolute; 
+      }
+      .div-text
+      {
+        height: 29px;
+        width: 30px;
+        background-color: #9e9e9e;
+        position: absolute;
+        right: 37px;
+        margin-top: 151px;
+      
+       
+        border-radius: 40px;
+        -webkit-animation: infinite bgcolorchange 4s;
+        animation: 3s infinite bgcolorchange;
+       opacity: 0.5;
+      }
+      .div-right-inner{
+         width:100%;
+         //margin:auto;
+         height: 31px;
+         padding: 2px;
+         border-radius: 5px;
+         background-color: #9e9e9e;
+         -webkit-animation: infinite bgcolorchange 4s;
+         animation: 3s infinite bgcolorchange;
+        opacity: 0.5;
+      }
+      .p-text{
+      padding: 0px;
+      margin: 0px;
+      
+      }
+      .p-points-text{
+       text-align: center;
+       color:#FFF;
+       font-size: 1.4rem;
+      }
+      .icon-style{
+        font-size: 1.0rem;
+        padding-top: 5px;
+        color:black;
+        font-family: "Loto-Regular"
+    }
+    .text-decor1
+    {
+        width: 144px;
+        height: 15px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        background-color: lightgray;
+        -webkit-animation: infinite bgcolorchange 4s;
+        animation: 3s infinite bgcolorchange;
+       opacity: 0.5; 
+    }
+    .text-decor
+        {
+            width: 144px;
+            height: 21px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            background-color: lightgray;
+            -webkit-animation: infinite bgcolorchange 4s;
+            animation: 3s infinite bgcolorchange;
+           opacity: 0.5;
+        }
+        .animate-imagebox
+        {
+            height: 183px;
+            background-color: lightgrey;
+            -webkit-animation: infinite bgcolorchange 4s;
+            animation: 3s infinite bgcolorchange;
+            opacity: 0.5;
+        }
+        .fakeItem {
+            h2, h3, p {
+              // background-color: lightgrey;
+              -webkit-animation: infinite bgcolorchange 4s;
+               animation: 1.8s infinite bgcolorchange;
+              opacity: 0.5;
+              height: 1em;
+              margin-top: 5px;
+          
+            }
+          
+            h2 {
+              width: 35%;
+            }
+          
+            h3 {
+              width: 40%;
+            }  
+          
+            p {
+              width: 60%;
+            }
+          }
+          .animate-skeleton-background {
+              -webkit-animation: infinite bgcolorchange 4s;
+              animation: 4s infinite bgcolorchange;
+              opacity: 0.5;
+              }
+              
+              @keyframes bgcolorchange {
+              0% {
+              color: #f2f2f2;
+              }
+              25% {
+              background: lightgray;
+              }
+              50% {
+              background: #f2f2f2;
+              }
+              75% {
+              background: lightgray;
+              }
+              100% {
+              background-color: #f2f2f2;
+              }
+              }
+              
+              @-webkit-keyframes bgcolorchange {
+              0% {
+              background: #f2f2f2;
+              }
+              25% {
+              background: lightgray;
+              }
+              50% {
+              background: #f2f2f2;
+              }
+              75% {
+              background: lightgray;
+              }
+              100% {
+              background: #f2f2f2;
+              }
+          }
+          .div-parent{
+              width:100%;
+              //position:absolute;
+              height: 200px;
+              margin-top:5px;
+              
+             
+              
+              // border-bottom:1px solid #CCCCCC;
+          }
+          .edit-style{
+            color: #646464;
+            font-size: 1.3rem;
+          }
+          .name-style1
+          {
+            font-size: 1.4rem;
+            font-family: AvenirLTStd-Heavy;
+            margin-top: -2px;
+          }
+          .para-style1{
+            margin-top: -12px;
+            color: #979797;
+        }
+        // 11/04/19
+       
+         .row-style {
+            margin-top: -19px;
+            margin-left: 10px;
+        }
+         .city-style {
+            margin-top: -56px;
+          
+        }
+         .cat-style {
+            margin-top: -15px;
+            margin-bottom: 20px;
+        }
+                
+    }

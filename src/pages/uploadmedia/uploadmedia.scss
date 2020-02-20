@@ -1,0 +1,129 @@
+page-uploadmedia {
+  .spinner-md-crescent circle {
+    stroke: #fff !important;
+}
+    .item-input{
+  
+        background-color: #E9E9E9;
+        margin-bottom: 14px;
+        border-radius: 5px;
+    }.icon-img{
+        height: 20px;
+    
+    }
+    .text-input::-moz-placeholder {
+        color:#000 ;
+      }
+      
+      .text-input:-ms-input-placeholder {
+        color:#000 ;
+      }
+      
+      .text-input::-webkit-input-placeholder {
+        text-indent: 0;
+        color:#000;
+      }
+      .button-style{
+        position: absolute;
+     
+        width: 91%;
+        margin-top: -56px;
+        display: flex;
+        justify-content: flex-end;
+      }
+      .but-style{
+        height: 32px;
+        margin-right: 10px;
+        text-transform: none;
+      }
+      .or-style{
+        text-align: center;
+        font-family: AvenirLTStd-Heavy;
+        font-weight: 500;
+      }
+      .upload-style{
+        position: absolute;
+        width: 91%;
+        margin-top: -56px;
+      
+        display: flex;
+    
+        justify-content: flex-end;
+      }
+      .img-style{
+       
+        height: 15px;
+    margin: 11px;
+    width: 15px;
+      }
+      .youtube-submit
+      {
+        text-align:center;
+        text-overflow: capitalize; 
+      }
+      .toggle-ios.toggle-checked .toggle-icon {
+        background-color: #fff;
+        border: 2px solid #000;
+    }
+    .upload-css
+    {
+      margin-left: 3px;
+
+    }
+    .div-upload
+    {
+      margin-top:45px;
+    }
+    .toggle-ios .toggle-inner {
+        left: 2px;
+        top: 2px;
+        border-radius: 14px;
+        position: absolute;
+        width: 23px;
+        height: 23px;
+        background: black;
+      
+    }
+    .toggle-ios .toggle-icon {
+        background-color: #fff;
+    border: 2px solid #000;
+    }
+    .select-style{
+      display: FLEX;
+      justify-content: center;
+      margin-top: 35px;
+      margin-bottom: 35px;
+    }
+    .upload{
+      border-radius: 25px;
+
+width: 60%;
+
+margin-top: -20px;
+    }
+    .upload-status{
+
+
+width: 100%;
+
+align-items: center;
+
+height: 100%;
+
+align-items: center;
+
+    }
+    .upload-status {
+
+      position: relative;
+  
+  }
+  .upload-status-inner {
+  
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+  
+  }
+}

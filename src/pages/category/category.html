@@ -1,0 +1,156 @@
+<!--
+  Generated template for the CategoryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title style="text-align:center;    margin-left: -29px;">Select Categories</ion-title>
+    <!-- <ion-buttons  right style="    width: 19px;    margin-right: 12px; " >
+      
+  
+      <button ion-button icon-only (click)="addTalk()">
+          <ion-icon   *ngIf="loader==false">
+              <img style="margin-right: 16px;" class="navbar-icon" item-left src="assets/create_conversation/tick.png">
+            </ion-icon>
+            <ion-spinner *ngIf="loader==true"></ion-spinner>
+          </button>
+  </ion-buttons> -->
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list *ngIf="loading==false" style="padding:21px;">
+        <div *ngFor="let fake of fakeUsers" style="    margin-bottom: 12px;">
+        
+            
+           
+             
+                <div class="div-right-inner" >
+                  <p class="p-text p-points-text" style="font-size:1.2rem"></p>
+               
+                </div>
+              
+                
+                
+      </div>
+      </ion-list> 
+<ion-list style="    height: 100%;">
+  <div style="    margin-bottom: 13px;" *ngFor="let value of categories;let i=index">
+ <div  (click)="expandItem(value,i)" [style.backgroundImage]="'url('+ value.Category.category_image_url +')'" class="row-image"  >
+<ion-row style="height: 77px;">
+  <ion-col class="col-style" col-2>
+    <img class="img-size" [src]="value.Category.category_small_image_url">
+  </ion-col>
+  <ion-col class="col-cat" col-7>
+    <p class="p-cat">{{value.Category.category_short_name}}</p>
+  
+    <img id="tickshow4" *ngIf="value.Category.checked==true" class="tree-img" src="assets/tree-cat/chevron.png">
+  </ion-col>
+  <ion-col class="col-cat1" col-3>
+      <img  id="tickshow" *ngIf="value.Category.checked==true" style="    height: 21px;" src="assets/tree-cat/tick_green.png">
+    </ion-col>
+</ion-row>
+
+ </div>
+
+ <div  style="transition: 0.4s ease-in-out;" id="showall"  >
+    <components-expandable  [expanded]="value.Category.checked">
+    
+      <!-- <div   *ngFor="let val of Childrens"> -->
+        <div  *ngFor="let val of value.Childrens;let ids=index" >
+ <div  class="div-style"  (click)="showsubcat(val,ids)">
+   
+   
+  <ion-row style="  height: 65px;">
+    <ion-col class="col-style" col-2>
+      <img class="img-size1" [src]="val.Subcategory.subcategory_small_image_url">
+    </ion-col>
+    <ion-col class="col-cat" col-7>
+      <p class="p-cat1">{{val.Subcategory.subcategory_short_name}}</p>
+   
+    </ion-col>
+    <ion-col col-3 class="tick-arrow">
+       
+        <img *ngIf="val.Subcategory.checked==true" id="tickshow2" style="    height: 21px;" src="assets/tree-cat/tick_green.png">
+        <img  *ngIf="val.Subcategory.checked==true"  id="tickshow3" style="height: 16px;
+        margin-left: 9px;" src="assets/tree-cat/arrow (4).png">
+                </ion-col>
+  </ion-row>
+ 
+</div>
+<div id="showsub-cat"  class="sub-cat">
+  <components-expandable  [expanded]="val.Subcategory.checked">
+ 
+  <ion-row (click)="subsubcat(vals,i,ids,ide)" style="  height: 65px;border-bottom: 1px solid;" *ngFor="let vals of val.Childrens;let ide=index">
+    <!-- <div>Hope</div> -->
+
+        <ion-col class="col-style" col-2>
+          <img class="img-size1" [src]="vals.Subsubcategory.subsubcategory_small_image_url">
+        </ion-col>
+        <ion-col class="col-cat" col-7>
+          <p class="p-cat2">{{vals.Subsubcategory.subsubcategory_short_name}}</p>
+          
+        </ion-col>
+        <ion-col col-3 class="tick-arrow">
+       
+            <img *ngIf="vals.Subsubcategory.checked==true" id="tickshow2" style="    height: 21px;" src="assets/tree-cat/tick_green.png">
+         
+                    </ion-col>
+      </ion-row>
+    </components-expandable>
+</div>
+</div>
+</components-expandable>
+</div>
+  </div>
+ 
+</ion-list>
+
+
+<!-- <ion-card (click)="expandItem(item)" *ngFor="let item of catsound">
+  <ion-card-header [style.backgroundImage]="'url('+ item.artform +')'">
+    <ion-card-title>{{item.category}}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <components-expandable expandHeight="100px" [expanded]="item.expanded">
+     
+      <p>
+        Hello there.
+      </p>
+      <p>
+        Hello there.
+      </p>
+      <p>
+        Hello there.
+      </p>
+      <p>
+        
+        Hello there.
+      </p>
+      <p>
+        Hello there.
+      </p>
+      <p>
+        Hello there.
+      </p>
+    </components-expandable>
+  </ion-card-content>
+</ion-card> -->
+</ion-content>
+<ion-footer class="footer-style">
+  
+    
+
+        
+    <ion-row>
+      <button (click)="addTalk()" ion-button full>Save</button>
+    </ion-row>    
+   
+    
+</ion-footer>

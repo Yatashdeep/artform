@@ -1,0 +1,93 @@
+{
+  "project_info": {
+    "project_number": "863534362265",
+    "firebase_url": "https://artformhope.firebaseio.com",
+    "project_id": "artformhope",
+    "storage_bucket": "artformhope.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:863534362265:android:8a9a0881721b5ab6cf9208",
+        "android_client_info": {
+          "package_name": "io.artform.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "863534362265-v1htp4ir158do90e02r20j4rd01rvahj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.artform.com",
+            "certificate_hash": "0820c6cdafaab2555b22d67f10caa23e8ae80b4e"
+          }
+        },
+        {
+          "client_id": "863534362265-cf4n55pnfu3mmhuj85k4u604pnf5vkc5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEzDahHsBVO4IP-XqJIzqRE9i7N6LZI1Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "863534362265-cf4n55pnfu3mmhuj85k4u604pnf5vkc5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:863534362265:android:764d2cb7da3280eb",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "863534362265-jmdpvl3aead878jnq4cnbfosh6t7jsln.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.ionic.starter",
+            "certificate_hash": "84130b56841888f000a1828cb96e78cdd8c45155"
+          }
+        },
+        {
+          "client_id": "863534362265-u0ccsuete4e5tv8dmp25kmkq41lrplip.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.ionic.starter",
+            "certificate_hash": "0820c6cdafaab2555b22d67f10caa23e8ae80b4e"
+          }
+        },
+        {
+          "client_id": "863534362265-cf4n55pnfu3mmhuj85k4u604pnf5vkc5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEzDahHsBVO4IP-XqJIzqRE9i7N6LZI1Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "863534362265-cf4n55pnfu3mmhuj85k4u604pnf5vkc5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

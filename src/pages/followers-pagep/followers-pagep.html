@@ -1,0 +1,33 @@
+<!--
+  Generated template for the FollowersPagepPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar  color="primary">
+      <ion-title>{{followers}}</ion-title>
+      <ion-buttons (click)="closemodal()" right style="    width: 14px;    margin-right: 16px;"  >
+        <button  style="    width: 26px;" ion-button >
+         <ion-icon item-start name="close">
+           
+         </ion-icon>
+     </button>
+     </ion-buttons>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding>
+  <ion-row *ngFor="let value of followingdata;let i=index">
+    <ion-col col-3 (click)="viewprofilepage(i)">
+      <img class="img-avtar" src="{{value.Users.user_profile_avatar}}">
+    </ion-col>
+    <ion-col col-9 style="text-align:center">
+       <p>{{value.Users.user_display_name}}</p>
+      </ion-col>
+     
+    </ion-row>
+  </ion-content>

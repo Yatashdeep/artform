@@ -1,0 +1,108 @@
+<!--
+  Generated template for the UploadmediaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+      <ion-buttons left style="    width: 19px;">
+          <button ion-button menuToggle>
+          <ion-icon item-start>
+            <img class="navbar-icon" item-left src="assets/Menu/navbar.png">
+          </ion-icon>
+           </button>
+      </ion-buttons>
+    <ion-title [style.marginRight] = "id ==1 ? '35px' :'-15px'" id='title' style="text-align:center;    margin-right: -15px;    ">Upload Media</ion-title>
+    <!-- <ion-buttons end style="margin-right: 11px;" >
+  
+  
+  <button ion-button (click)="changeusertype()">
+      <ion-icon *ngIf="loader==false" style="width: 20px;">
+        <img src="assets/profile/upload.png">
+      </ion-icon>
+      <ion-spinner *ngIf="loader==true"></ion-spinner>
+    </button>
+    </ion-buttons> -->
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div *ngIf="changetypeshow==false">
+    
+  <form [formGroup]="uploadform" >
+  <ion-item class="item-input" *ngIf="youTubeuploadactive==true">
+    <img class="icon-img" src="assets/upload media/youtube.png" item-left primary>
+    <ion-input (keyup)="tap()" [class.invalid]="!uploadform.controls.youtubeinput.valid && (uploadform.controls.youtubeinput.dirty || submitAttempt)" formControlName="youtubeinput"  placeholder="Enter Youtube Url"></ion-input>
+</ion-item>
+<div  style="color:red" *ngIf="!uploadform.controls.youtubeinput.valid  && (uploadform.controls.youtubeinput.dirty || submitAttempt)">
+  <p class="error-text">Please enter a valid youtube url.</p>
+</div>
+
+
+ </form>
+<div *ngIf="youTubeuploadactive==true">
+<div *ngIf="submit==true" class="youtube-submit">
+  <button [disabled]="!uploadform.valid" *ngIf="loader1==false" (click)="submityoutube()" ion-button  round>Submit</button>
+  <ion-label style="color: #000000;" *ngIf="loader1==true">Uploading..</ion-label>
+</div>
+</div>
+<p *ngIf="hidefileinput==false" class="or-style">OR</p>
+   <ion-item *ngIf="hidefileinput==false" class="item-input" >
+    <img   class="icon-img" src="assets/upload media/add-file.png" item-left primary>
+    <ion-input [(ngModel)]="imgsrc1"  placeholder="Add File"></ion-input>
+    
+   </ion-item>
+ 
+
+  <div *ngIf="hidefileinput==false" class="upload-style" (click)="mediaoption()">
+  <ion-icon>
+    <img class="img-style" src="assets/upload media/plus.png">
+  </ion-icon>
+  </div>
+  <div *ngIf="Cover==true">
+  <ion-item style="    margin-bottom: 9px;" no-lines>
+    <ion-label style="font-family: AvenirLTStd-Heavy;">Add Cover Image</ion-label>
+    <ion-toggle (ionChange)="gettogglevalue()"  [(ngModel)]="toggleswitch" style="    margin-right: 4px;" mode="ios"  checked="true"></ion-toggle>
+  </ion-item>
+   <ion-item *ngIf="uploadactive==false" class="item-input" >
+    <img  class="icon-img" src="assets/upload media/upload_image.png" item-left primary>
+    <ion-input [(ngModel)]="imgsrc2" style="width:10%" placeholder="Upload Image"></ion-input>
+    
+   </ion-item>
+  
+<div class="button-style" *ngIf="uploadactive==false">
+  <button (click)="capturecamera(1)" class="but-style" ion-button color="primary" round>Browse</button>
+</div>
+</div>
+<div class="div-upload" *ngIf="upload==true">
+    <ion-label style="font-family: AvenirLTStd-Heavy;">{{uploadstatus}}</ion-label>
+<progressbar [progress]="loadProgress"></progressbar>
+</div>
+<div class="select-style">
+  <button *ngIf="categoryloading==false" (click)="category()" style="width: 61%;    height: 40px;" ion-button round>SELECT CATEGORIES</button>
+  
+<div style="text-align:center" *ngIf="categoryloading==true">
+  <p >Loading..</p>
+</div>
+</div>
+<div style="text-align:center">
+  <button class="upload" ion-button (click)="changeusertype()">Upload</button>
+</div>
+</div>
+<div class="upload-status" *ngIf="changetypeshow==true">
+    <div class="upload-status-inner">
+  <ion-row class="row">
+    <p style="text-align: center;font-size: 2.1rem;">You have created a User profile. In order to upload, please change to Artist profile. Would you like to change to Artist Profile and enable upload?</p>
+  </ion-row>
+  <ion-row class="row">
+    <div style="display:flex;justify-content: center">
+  <button (click)="changeusertype()" ion-button class="button button-md button-default button-default-md"><span class="button-inner">Change to Artist Profile</span><div class="button-effect"></div></button>
+  </div>
+  </ion-row>
+      </div>
+  </div>
+</ion-content>

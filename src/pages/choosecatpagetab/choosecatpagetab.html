@@ -1,0 +1,720 @@
+<!--
+  Generated template for the ChoosecatpagetabPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+<ion-navbar color="primary">
+      
+    <ion-row no-padding>
+     
+     <ion-col style="text-align:center"  no-padding>
+         <p style="color:#fff">{{Titlecat}}</p>
+     </ion-col>
+    </ion-row>
+    <ion-row no-padding>
+       <div class="segment-class">
+           <ion-segment  [(ngModel)]="pet" (ionChange)=onSegmentChanged($event)>
+               <ion-segment-button  class="seg-tab" value="Recent_Uploads" >
+           Recent Uploads
+               </ion-segment-button>
+               <hr class="divider-seg">
+               <ion-segment-button class="seg-tab" value="top_performers" >
+            Top Performers
+               </ion-segment-button>
+               <hr class="divider-seg">
+               <!-- <ion-segment-button  class="seg-tab" value="Recent_Uploads" > -->
+               <ion-segment-button class="seg-tab" value="Trending_Items" >
+                   Trending Items
+                       </ion-segment-button>
+             </ion-segment>
+           </div>
+    </ion-row>
+   </ion-navbar>
+
+</ion-header>
+<ion-content >
+    <div [ngSwitch]="pet">
+    <ion-list *ngSwitchCase="'Recent_Uploads'">
+        
+        <ion-row style="    margin-top: -6px;" padding>
+           <p class="head-p"><span class="span-head">Recent Uploads </span> </p>    
+          </ion-row>  
+        <div>
+        <!-- <ion-row *ngFor="let value of fakedata;let i=index"  style="    margin-top: -10px;    margin-bottom: 26px;">
+           <div class="image-tag">
+              
+               <img style="    width: 89%;" src="assets/Dashboard/thumbnail.png">
+              
+             </div>
+             <div class="img-box" >
+             <div class="img-content">
+              
+                <ion-row>
+                  <ion-col class="cols-style">
+                   0{{i+1}}
+                  </ion-col>
+                <ion-col style="text-align:end">
+                  
+                </ion-col>
+                 </ion-row>
+ 
+ 
+               <div class="detail-grid1">
+                 
+               <div class="detail-div">
+                  <p style="font-weight: bold;" class="music-type">Dublin</p>
+                 <p class="title-type1">Photography/Architecture</p> 
+                  <ion-row class="star-div"> 
+                  <ion-col  col-2>
+                   <img style="height:13px;    margin: 4px 1px 2px -3px;" src="assets/Dashboard/rating.png">
+                 </ion-col>
+                 <ion-col col-10>
+                  <p class="count-like">6037</p>
+                 </ion-col>
+                 </ion-row>
+               </div>
+               <div class="image-box" >
+                 <ion-row (click)="authtap()">
+                   <ion-col col-8 style="    text-align: end;">
+                     <p> dipu_m18</p></ion-col>
+                   <ion-col col-3 style="margin-top: -2px;">
+                       <img class="userimage1" src="assets/tabsicon/propic.jpg"> </ion-col>
+                 </ion-row> 
+                 <ion-row style="    margin-top: -32px;" (click)="openstar()">
+                   <ion-col col-3>
+                         <p style="       margin-left: 9px;
+                         display: inline-block;    font-size: 1.5rem;
+                         position: absolute;
+     right: -14px;">Vote</p>
+                   </ion-col>
+                   <ion-col col-9 style="padding: 9px;margin-top: 3px;display: flex;
+                   justify-content: center;">
+                       <ionic3-star-rating 
+                       activeIcon = "ios-star"
+                       defaultIcon = "ios-star-outline"
+                       activeColor = "rgb(228, 215, 38)" 
+                       defaultColor = "rgb(228, 215, 38)"
+                       readonly="true"
+                       [rating]="0">
+                   </ionic3-star-rating>
+                     </ion-col>
+                   </ion-row>
+               </div>
+               
+               </div>
+       
+             </div>
+             </div>
+             <div class="post-img">
+          <div class="social-img">
+            
+            <div class="header1">
+               <img class="img-post" src="assets/Dashboard/share-gray.png">
+             </div>
+             <div class="header1">
+                 <img class="img-post" src="assets/Dashboard/user.png">
+               </div>
+               <div class="header1">
+                   <img class="img-post" src="assets/Dashboard/msg.png">
+                 </div>
+                 <div class="header1" (click)="reportnavigate()">
+                     <img class="img-post" src="assets/Dashboard/error.png">
+                   </div>
+       
+             </div>
+             <div class="social-img">
+       
+              <div class="header1" >
+                 <img class="img-post" src="assets/Dashboard/share-gray.png">
+                 <div class="share-div" (click)="tapshow1()"></div>
+               </div>
+               <div class="header1" (click)="followedartist()">
+                   <img class="img-post" src="assets/Dashboard/user.png">
+                 </div>
+                 <div class="header1" (click)="navigatetocomment()">
+                     <img class="img-post" src="assets/Dashboard/msg.png">
+                   </div>
+                   <div class="header1" (click)="reportnavigate()">
+                       <img class="img-post" src="assets/Dashboard/error.png">
+                     </div>
+         
+               </div>
+           </div>
+           </ion-row> -->
+           <loaderdata *ngIf="loadingdata=='on'" ></loaderdata>
+           <ion-row *ngFor="let value of profilerecentcharts;let i=index"  style="    margin-top: -10px;    margin-bottom: 26px;">
+           <div class="image-tag">
+               
+            <img style="    width: 89%;" [src]="value.media_thumbnail_url">
+           
+          </div>
+          <div class="img-box"  >
+          <div class="img-content" >
+            <div (click)="viewvideo(i)" class="cat-div" > 
+              <!-- <img class="cat-icon" [src]="value.mediathumbnailuser"> -->
+              <ion-row>
+                  <ion-col col-8>
+                    
+                   <img  *ngIf="value.media_type=='video/mp4'||value.media_type=='youtube'||value.media_type=='audio/mpeg' || value.media_type=='audio/mp3'" class="play-style" src="assets/play.png">
+                   </ion-col>
+                   <ion-col col-4>
+                
+                 <!-- <img class="cat-icon" [src]="value.small_image_url"> -->
+                 <img class="cat-icon" [src]="value.mediathumbnailuser">
+                   </ion-col>
+               </ion-row>
+            </div>
+            <div class="details" >
+              <ion-row>
+                <ion-col col-5>
+                  <div class="details-1">
+                    <p class="title">{{value.usermedia_name}}</p>
+                    <p class="arts">{{value.artforms}} </p>
+                 
+                      <div *ngIf="user_display_name!=value.user_display_name" class="stars" (click)="openstar(value.usermediaid)"> <ionic3-star-rating 
+                      activeIcon = "ios-star"
+                      defaultIcon = "ios-star-outline"
+                      activeColor = "rgb(228, 215, 38)" 
+                      defaultColor = "#f4f4f4"
+                      readonly="false"
+                      [rating]="value.rating">
+                    </ionic3-star-rating></div>
+                
+                    <div *ngIf="user_display_name==value.user_display_name" class="stars" > <ionic3-star-rating 
+                      activeIcon = "ios-star"
+                      defaultIcon = "ios-star-outline"
+                      activeColor = "rgb(228, 215, 38)" 
+                      defaultColor = "#f4f4f4"
+                      readonly="true"
+                      [rating]="value.rating">
+                    </ionic3-star-rating>
+                    </div>
+                  </div>
+                </ion-col>
+                <ion-col col-4>
+                  <div class="details-2">
+                  <p class="author-name">{{value.user_display_name}}</p>
+                  <p class="post-time">{{value.usermedia_posted}}</p>
+                  </div>
+                </ion-col>
+                <ion-col col-3>
+                  <figure class="author-img">
+                      <img  (click)="authtap(i,value.user_display_name)" style="border-radius: 35px;" class="custom-cat-icon" [src]="value.user_avatar">
+                  </figure>
+                </ion-col>
+              </ion-row>         
+            </div>
+            <!-- <div class="detail-grid" >
+              
+            <div style="margin-top: 6px;    white-space: nowrap;" class="detail-div" >
+               <p style="font-weight: bold;" class="music-type">{{value.usermedia_name}}</p>
+               <p class="title-type">{{value.toptypeprofile}}</p>
+               <div class="star-div" >
+            <ionic3-star-rating (click)="openstar(value.usermediaid)" *ngIf="user_display_name!=value.user_display_name"
+                activeIcon = "ios-star"
+                defaultIcon = "ios-star-outline"
+                activeColor = "rgb(228, 215, 38)" 
+                defaultColor = "#f4f4f4"
+                readonly="false"
+                [rating]="value.totalRating">
+            </ionic3-star-rating>
+
+            <ionic3-star-rating *ngIf="user_display_name==value.user_display_name"
+                activeIcon = "ios-star"
+                defaultIcon = "ios-star-outline"
+                activeColor = "rgb(228, 215, 38)" 
+                defaultColor = "#f4f4f4"
+                readonly="true"
+                [rating]="value.totalRating">
+            </ionic3-star-rating>
+          
+          </div>
+            </div>
+            
+          
+             <div style="text-align:right; " class="detail-div1" >  
+              <div class="author-box">
+              <p  style="    height: 0px;font-weight: bold">{{value.user_display_name}}</p>
+              <p>{{value.usermedia_posted}}</p>
+              </div>
+            </div>
+            <div   class="detail-div userpic">
+              <img (click)="authtap(i,value.user_display_name)" class="userimage" [src]="value.user_profile_avatar">
+            </div>
+            </div> -->
+      
+          </div>
+          </div>
+          <div class="post-img">
+       <div class="social-img">
+         
+         <div class="header1">
+            <img  class="img-post" src="assets/Dashboard/share-gray.png">
+            <div class="share-div" (click)="tapshow1(i)"></div>
+          </div>
+          <div class="header1" (click)="followartist(value.artist_id)">
+              <img class="img-post" src="assets/Dashboard/user.png">
+            </div>
+            <div class="header1" (click)="navigatetomsg(i)">
+                <img class="img-post" src="assets/Dashboard/msg.png">
+              </div>
+              <div class="header1" (click)="reportnavigate()">
+                  <img class="img-post" src="assets/Dashboard/error.png">
+                </div>
+      
+          </div>
+        </div>
+      </ion-row>
+         </div>
+         <div style="text-align: center;
+            position: absolute;
+            top: 25%;
+            width: 100%;
+            padding: 6%;
+            justify-content: center;" >
+         <p style="font-weight: bold;
+
+         font-size: 2.6rem;">{{completedata}}</p>
+         </div>
+         <ion-infinite-scroll (ionInfinite)="loadMore($event)" loadingSpinner="bubbles" loadingText="Loading data...">
+          <ion-infinite-scroll-content></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+       </ion-list>
+
+
+       <!--Recent Uploads  -->
+       <ion-list *ngSwitchCase="'top_performers'">
+        
+          <ion-row style="    margin-top: -6px;" padding>
+             <p class="head-p"><span class="span-head">Top Performers</span> </p>    
+            </ion-row>  
+            <loaderdata *ngIf="loadingdata=='on'" ></loaderdata>
+            <div style="text-align: center;
+            position: absolute;
+            top: 25%;
+            width: 100%;
+            padding: 6%;
+            justify-content: center;" *ngIf="text">
+             <p style="font-weight: bold;
+
+             font-size: 2.6rem;">{{text}}</p>
+            </div>
+          <div>
+            <ion-row *ngFor="let value of playerlist;let i=index"  style="    margin-top: -10px;    margin-bottom: 26px;">
+              <div class="image-tag">
+                 
+                  <img style="    width: 89%;" src="{{value.usermedia_path}}">
+                 
+                </div>
+                <div class="img-box" >
+                <div class="img-content">
+                 
+                   <!-- <ion-row style="height: 105px;" (click)="viewvideotop(i)">
+                     <ion-col class="cols-style">
+                      0{{i+1}}
+                     </ion-col>
+                   <ion-col style="text-align:end">
+                      <img class="
+                    cat-icon1" [src]="value.covermediathumbnail">
+                   </ion-col>
+                    </ion-row> -->
+                    <ion-row style="height: 105px;" (click)="viewvideotop(i)">
+                        <ion-col class="cols-style">
+                         0{{i+1}} 
+                        </ion-col>
+                      <ion-col style="text-align:end">
+                       <ion-row>
+                         <ion-col>
+                       <img style="position: absolute;
+                       justify-content: center;
+                       right: 32px;
+                       left: -30px;                          
+                       top: 41px;" *ngIf="value.usermedia_type=='video/mp4'||value.usermedia_type=='youtube'||value.usermedia_type=='audio/mpeg'  || value.usermedia_type=='audio/mp3'" class="play-style" src="assets/play.png">
+                        </ion-col>
+                        <ion-col>
+                       <img class="
+                       cat-icon1" [src]="value.covermediathumbnail">
+                       </ion-col>
+                       </ion-row>
+                        
+                           
+                       
+                         
+                       
+                        
+       
+       
+       
+       
+                      </ion-col>
+                       </ion-row>
+                       <div class="details-top" >
+                        <ion-row>
+                          <ion-col col-6>
+                            <div class="details-top-1">
+                              <p class="title">{{value.usermedia_name}}</p>
+                              <p class="arts">{{value.toptype}} </p>
+                              <ion-row class="number-star"> 
+                                <ion-col  col-2>
+                                 <img src="assets/Dashboard/rating.png" class="star-img-1">
+                               </ion-col>
+                               <ion-col col-10>
+                                <p class="count-like">{{value.totalrating}}</p>
+                               </ion-col>
+                               </ion-row>
+                            </div>
+                          </ion-col>
+                          <ion-col col-6>
+                            <div class="details-top-2">
+                              <ion-row>
+                                <ion-col col-12>
+                                    <p class="author-name">{{value.user_display_name}} </p>
+                                    <figure class="author-img">
+                                        <img (click)="authtap1(i,value.user_display_name)" style="border-radius: 35px;" class="custom-cat-icon-1" [src]="value.user_avatar">
+                                       </figure>
+                                </ion-col>
+                              </ion-row>
+                            
+                           
+                              <ion-row (click)="openstar(value.usermedia_id)">
+                                  <ion-col col-3>
+                                   <p>Vote</p>
+                                  </ion-col>
+                                  <ion-col col-9>
+                                    <div class="stars-1">
+                                      <ionic3-star-rating *ngIf="user_display_name!=value.user_display_name" 
+                                      activeIcon = "ios-star"
+                                      defaultIcon = "ios-star-outline"
+                                      activeColor = "rgb(228, 215, 38)" 
+                                      defaultColor = "rgb(228, 215, 38)"
+                                      readonly="false"
+                                      [rating]="value.rate" >
+                                  </ionic3-star-rating>
+                                  
+                                  <ionic3-star-rating *ngIf="user_display_name==value.user_display_name" 
+                                      activeIcon = "ios-star"
+                                      defaultIcon = "ios-star-outline"
+                                      activeColor = "rgb(228, 215, 38)" 
+                                      defaultColor = "rgb(228, 215, 38)"
+                                      readonly="true"
+                                      [rating]="value.rate" >
+                                  </ionic3-star-rating>
+                                </div>
+                                </ion-col>
+                              </ion-row>
+                            
+                            </div>
+                          </ion-col>
+                        </ion-row>         
+                      </div>
+                  <!-- <div class="detail-grid1">
+                    
+                  <div style="white-space: nowrap;" class="detail-div">
+                     <p style="font-weight: bold;" class="music-type">{{value.usermedia_name}}</p>
+                     <p class="title-type1">{{value.toptype}}</p>
+                     <ion-row class="star-div"> 
+                     <ion-col  col-2>
+                      <img style="height:13px;    margin: 4px 1px 2px -3px;" src="assets/Dashboard/rating.png">
+                    </ion-col>
+                    <ion-col col-10>
+                     <p style="    margin-top: -4px;" class="count-like">{{value.totalrating}}</p>
+                    </ion-col>
+                    </ion-row>
+                  </div>
+                  <div class="image-box" >
+                    <ion-row (click)="authtap1(i,value.user_display_name)">
+                      <ion-col class="user_name_topperformers" col-8 style="    text-align: end;    white-space: nowrap;">
+                        <p style="text-overflow: ellipsis;
+                        overflow: hidden;"> {{value.user_display_name}}</p></ion-col>
+                      <ion-col col-3 style="margin-top: -2px;">
+                       
+                          <img  class="userimage1" src="{{value.user_avatar}}">
+                         
+                        </ion-col>
+                      </ion-row> 
+                    <ion-row style="    margin-top: -32px;"  >
+                      <ion-col col-3>
+                            <p style="       margin-left: 9px;
+                            display: inline-block;    font-size: 1.5rem;
+                            position: absolute; right: -14px;">Vote</p>
+                      </ion-col>
+                      <ion-col col-9 style="padding: 9px;margin-top: 3px;display: flex;
+                      justify-content: center;">
+                          <ionic3-star-rating (click)="openstar(value.usermedia_id)"  *ngIf="user_display_name!=value.user_display_name"
+                          activeIcon = "ios-star"
+                          defaultIcon = "ios-star-outline"
+                          activeColor = "rgb(228, 215, 38)" 
+                          defaultColor = "rgb(228, 215, 38)"
+                          readonly="false"
+                          [rating]="value.rate" >
+                      </ionic3-star-rating>
+                      <ionic3-star-rating  *ngIf="user_display_name==value.user_display_name"
+                      activeIcon = "ios-star"
+                      defaultIcon = "ios-star-outline"
+                      activeColor = "rgb(228, 215, 38)" 
+                      defaultColor = "rgb(228, 215, 38)"
+                      readonly="true"
+                      [rating]="value.rate" >
+                  </ionic3-star-rating>
+                        </ion-col>
+                      </ion-row>
+                  </div>
+                  
+                  </div> -->
+          
+                </div>
+                </div>
+                <div class="post-img">
+             <div class="social-img">
+               
+               <div class="header1" >
+                  <img class="img-post" src="assets/Dashboard/share-gray.png">
+                  <div class="share-div" (click)="tapshowtop(i)"></div>
+                </div>
+                <div class="header1" (click)="followartist(value.artist_id)">
+                    <img class="img-post" src="assets/Dashboard/user.png">
+                  </div>
+                  <div class="header1" (click)="navigatetomsgtop(i)">
+                      <img class="img-post" src="assets/Dashboard/msg.png">
+                    </div>
+                    <div class="header1" (click)="reportnavigate(i)">
+                        <img class="img-post" src="assets/Dashboard/error.png">
+                      </div>
+          
+                </div>
+              </div>
+              </ion-row>
+           </div>
+         </ion-list>
+         <!-- trending items -->
+         <ion-list *ngSwitchCase="'Trending_Items'">
+        
+            <ion-row style="    margin-top: -6px;" padding>
+               <p class="head-p"><span class="span-head">Trending Items </span> </p>    
+              </ion-row>  
+            <div>
+                <loaderdata *ngIf="loadingdata=='on'" ></loaderdata>
+            <!-- <ion-row *ngFor="let value of fakedata;let i=index"  style="    margin-top: -10px;    margin-bottom: 26px;">
+               <div class="image-tag">
+                  
+                   <img style="    width: 89%;" src="assets/Dashboard/thumbnail.png">
+                  
+                 </div>
+                 <div class="img-box" >
+                 <div class="img-content">
+                  
+                    <ion-row>
+                      <ion-col class="cols-style">
+                       0{{i+1}}
+                      </ion-col>
+                    <ion-col style="text-align:end">
+                       
+                    </ion-col>
+                     </ion-row>
+     
+     
+                   <div class="detail-grid1">
+                     
+                   <div class="detail-div">
+                      <p style="font-weight: bold;" class="music-type">Dublin</p>
+                      <p class="title-type1">Photography/Architecture</p> 
+                      <ion-row class="star-div"> 
+                      <ion-col  col-2>
+                       <img style="height:13px;    margin: 4px 1px 2px -3px;" src="assets/Dashboard/rating.png">
+                     </ion-col>
+                     <ion-col col-10>
+                      <p class="count-like">6037</p>
+                     </ion-col>
+                     </ion-row>
+                   </div>
+                   <div class="image-box">
+                     <ion-row (click)="authtap()">
+                       <ion-col col-8 style="    text-align: end;">
+                         <p> dipu_m18</p></ion-col>
+                       <ion-col col-3 style="margin-top: -2px;">
+                           <img class="userimage1" src="assets/tabsicon/propic.jpg"> </ion-col>
+                     </ion-row> 
+                     <ion-row style="    margin-top: -32px;" (click)="openstar()">
+                       <ion-col col-3>
+                             <p style="       margin-left: 9px;
+                             display: inline-block;    font-size: 1.5rem;
+                             position: absolute;
+         right: -14px;">Vote</p>
+                       </ion-col>
+                       <ion-col col-9 style="padding: 9px;margin-top: 3px;display: flex;
+                       justify-content: center;">
+                           <ionic3-star-rating 
+                           activeIcon = "ios-star"
+                           defaultIcon = "ios-star-outline"
+                           activeColor = "rgb(228, 215, 38)" 
+                           defaultColor = "rgb(228, 215, 38)"
+                           readonly="true"
+                           [rating]="0">
+                       </ionic3-star-rating>
+                         </ion-col>
+                       </ion-row>
+                   </div>
+                   
+                   </div>
+           
+                 </div>
+                 </div>
+                 <div class="post-img">
+              <div class="social-img">
+                
+                <div class="header1">
+                   <img class="img-post" src="assets/Dashboard/share-gray.png">
+                   <div class="share-div" (click)="tapshow1()"></div>
+                 </div>
+                 <div class="header1" (click)="followedartist()">
+                     <img class="img-post" src="assets/Dashboard/user.png">
+                   </div>
+                   <div class="header1" (click)="navigatetocomment()">
+                       <img class="img-post" src="assets/Dashboard/msg.png">
+                     </div>
+                     <div class="header1" (click)="reportnavigate()">
+                         <img class="img-post" src="assets/Dashboard/error.png">
+                       </div>
+           
+                 </div>
+               </div>
+               </ion-row> -->
+               <ion-row *ngFor="let value of profilerecentcharts;let i=index"  style="    margin-top: -10px;    margin-bottom: 26px;">
+                <div class="image-tag">
+                    
+                 <img style="    width: 89%;" [src]="value.media_thumbnail_url">
+                
+               </div>
+               <div class="img-box"  >
+               <div class="img-content" >
+                 <div (click)="viewvideo(i)" class="cat-div" > 
+                   <!-- <img class="cat-icon" [src]="value.mediathumbnailuser"> -->
+                   <ion-row>
+                      <ion-col col-8>
+                        
+                       <img *ngIf="value.media_type=='video/mp4'||value.media_type=='youtube'||value.media_type=='audio/mpeg'  || value.media_type=='audio/mp3' " class="play-style" src="assets/play.png">
+                       </ion-col>
+                       <ion-col col-4>
+                    
+                     <!-- <img class="cat-icon" [src]="value.small_image_url"> -->
+                     <img class="cat-icon" [src]="value.mediathumbnailuser">
+                       </ion-col>
+                   </ion-row>
+                 </div>
+                 <div class="details" >
+                  <ion-row>
+                    <ion-col col-5>
+                      <div class="details-1">
+                        <p class="title">{{value.usermedia_name}}</p>
+                        <p class="arts">{{value.artforms}} </p>
+                     
+                          <div *ngIf="user_display_name!=value.user_display_name" class="stars" (click)="openstar(value.usermediaid)"> <ionic3-star-rating 
+                          activeIcon = "ios-star"
+                          defaultIcon = "ios-star-outline"
+                          activeColor = "rgb(228, 215, 38)" 
+                          defaultColor = "#f4f4f4"
+                          readonly="false"
+                          [rating]="value.rating">
+                        </ionic3-star-rating></div>
+                    
+                        <div *ngIf="user_display_name==value.user_display_name" class="stars" > <ionic3-star-rating 
+                          activeIcon = "ios-star"
+                          defaultIcon = "ios-star-outline"
+                          activeColor = "rgb(228, 215, 38)" 
+                          defaultColor = "#f4f4f4"
+                          readonly="true"
+                          [rating]="value.rating">
+                        </ionic3-star-rating>
+                        </div>
+                      </div>
+                    </ion-col>
+                    <ion-col col-4>
+                      <div class="details-2">
+                      <p class="author-name">{{value.user_display_name}}</p>
+                      <p class="post-time">{{value.usermedia_posted}}</p>
+                      </div>
+                    </ion-col>
+                    <ion-col col-3>
+                      <figure class="author-img">
+                          <img  (click)="authtap(i,value.user_display_name)" style="border-radius: 35px;" class="custom-cat-icon" [src]="value.user_avatar">
+                      </figure>
+                    </ion-col>
+                  </ion-row>         
+                </div>
+                 <!-- <div class="detail-grid" >
+                   
+                 <div style="margin-top: 6px;    white-space: nowrap;" class="detail-div" >
+                    <p style="font-weight: bold;" class="music-type">{{value.usermedia_name}}</p>
+                    <p class="title-type">{{value.toptypeprofile}}</p>
+                    <div class="star-div" > 
+                  <ionic3-star-rating  (click)="openstar(value.usermediaid)" *ngIf="user_display_name!=value.user_display_name"
+                     activeIcon = "ios-star"
+                     defaultIcon = "ios-star-outline"
+                     activeColor = "rgb(228, 215, 38)" 
+                     defaultColor = "#f4f4f4"
+                     readonly="false"
+                     [rating]="value.totalRating">
+                 </ionic3-star-rating>
+                 <ionic3-star-rating  *ngIf="user_display_name==value.user_display_name"
+                     activeIcon = "ios-star"
+                     defaultIcon = "ios-star-outline"
+                     activeColor = "rgb(228, 215, 38)" 
+                     defaultColor = "#f4f4f4"
+                     readonly="true"
+                     [rating]="value.totalRating">
+                 </ionic3-star-rating>
+                </div>
+                 </div>
+                 <div style="text-align:right; " class="detail-div1" > 
+               
+                   <div class="author-box">
+                   <p style="    height: 0px;font-weight: bold">{{value.user_display_name}}</p>
+                   <p>{{value.usermedia_posted}}</p>
+                   </div>
+                 </div>
+                 <div   class="detail-div userpic">
+                   <img (click)="authtap(i,value.user_display_name)" class="userimage" [src]="value.user_profile_avatar">
+                 </div>
+                 </div> -->
+           
+               </div>
+               </div>
+               <div class="post-img">
+            <div class="social-img">
+              
+              <div class="header1">
+                 <img  class="img-post" src="assets/Dashboard/share-gray.png">
+                 <div class="share-div" (click)="tapshow1(i)"></div>
+               </div>
+               <div class="header1" (click)="followartist(value.artist_id)">
+                   <img class="img-post" src="assets/Dashboard/user.png">
+                 </div>
+                 <div class="header1" (click)="navigatetocomment(i)">
+                     <img class="img-post" src="assets/Dashboard/msg.png">
+                   </div>
+                   <div class="header1" (click)="reportnavigate()">
+                       <img class="img-post" src="assets/Dashboard/error.png">
+                     </div>
+           
+               </div>
+             </div>
+           </ion-row>
+             </div>
+             <div style="text-align: center;
+            position: absolute;
+            top: 25%;
+            width: 100%;
+            padding: 6%;
+            justify-content: center;" *ngIf="text">
+             <p style="font-weight: bold;
+
+             font-size: 2.6rem;">{{completedata}}</p>
+          </div>
+             <ion-infinite-scroll (ionInfinite)="loadMore($event)" loadingSpinner="bubbles" loadingText="Loading data...">
+          <ion-infinite-scroll-content></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+           </ion-list>
+       </div>
+</ion-content>

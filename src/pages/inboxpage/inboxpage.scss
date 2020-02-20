@@ -1,0 +1,183 @@
+page-inboxpage {
+    .img-design{
+        // border-radius: 50%;
+        // height: 50px;
+        // margin-left: 8px;
+        border-radius: 50%;
+    height: 50px;
+    /* margin-left: -8px; */
+    width: 50px;
+    border: 1px solid;
+    }
+    .grid{
+        display:grid;
+        grid-template-columns:1fr 1fr;  
+    }
+    .p-text{
+        font-size: 1.5rem;
+        width: 102%;
+        font-weight: 900;
+        margin-top: 5px;
+        font-family: AvenirLTStd-Heavy;
+    }
+    .p1-text{
+        margin-top: 7px;
+        font-size: 1.3rem;
+    }
+    .date-style{
+        font-size: 1.3rem;
+        font-weight: 900;
+        text-align: right;
+        margin-top: 5px;
+    }
+    .icon-arrow{
+        height: 13px;
+      
+    }
+    .msg-box{
+        margin-top: -26px;
+        margin-left: 6px;
+        font-size: 1.2rem;
+        color: grey;
+        height: 18px;
+       
+    }
+    .hr-style{
+        width: 100%;
+        height: 1px;
+        margin-top: 25px;
+    }
+    .div-right-inner{
+        width:100%;
+        //margin:auto;
+        height: 100px;
+        padding: 2px;
+        border-radius: 5px;
+        background-color: #9e9e9e;
+        -webkit-animation: infinite bgcolorchange 4s;
+        animation: 3s infinite bgcolorchange;
+       opacity: 0.5;
+     }
+     .p-text{
+     padding: 0px;
+     margin: 0px;
+     
+     }
+     .p-points-text{
+      text-align: center;
+      color:#FFF;
+      font-size: 1.4rem;
+     }
+     .icon-style{
+       font-size: 1.0rem;
+       padding-top: 5px;
+       color:black;
+       font-family: "Loto-Regular"
+   }
+   .text-decor1
+   {
+       width: 144px;
+       height: 15px;
+       overflow: hidden;
+       text-overflow: ellipsis;
+       white-space: nowrap;
+       background-color: lightgray;
+       -webkit-animation: infinite bgcolorchange 4s;
+       animation: 3s infinite bgcolorchange;
+      opacity: 0.5; 
+   }
+   .text-decor
+       {
+           width: 144px;
+           height: 21px;
+           overflow: hidden;
+           text-overflow: ellipsis;
+           white-space: nowrap;
+           background-color: lightgray;
+           -webkit-animation: infinite bgcolorchange 4s;
+           animation: 3s infinite bgcolorchange;
+          opacity: 0.5;
+       }
+       .animate-imagebox
+       {
+           height: 183px;
+           background-color: lightgrey;
+           -webkit-animation: infinite bgcolorchange 4s;
+           animation: 3s infinite bgcolorchange;
+           opacity: 0.5;
+       }
+       .fakeItem {
+           h2, h3, p {
+             // background-color: lightgrey;
+             -webkit-animation: infinite bgcolorchange 4s;
+              animation: 1.8s infinite bgcolorchange;
+             opacity: 0.5;
+             height: 1em;
+             margin-top: 5px;
+         
+           }
+         
+           h2 {
+             width: 35%;
+           }
+         
+           h3 {
+             width: 40%;
+           }  
+         
+           p {
+             width: 60%;
+           }
+         }
+         .animate-skeleton-background {
+             -webkit-animation: infinite bgcolorchange 4s;
+             animation: 4s infinite bgcolorchange;
+             opacity: 0.5;
+             }
+             
+             @keyframes bgcolorchange {
+             0% {
+             color: #f2f2f2;
+             }
+             25% {
+             background: lightgray;
+             }
+             50% {
+             background: #f2f2f2;
+             }
+             75% {
+             background: lightgray;
+             }
+             100% {
+             background-color: #f2f2f2;
+             }
+             }
+             
+             @-webkit-keyframes bgcolorchange {
+             0% {
+             background: #f2f2f2;
+             }
+             25% {
+             background: lightgray;
+             }
+             50% {
+             background: #f2f2f2;
+             }
+             75% {
+             background: lightgray;
+             }
+             100% {
+             background: #f2f2f2;
+             }
+         }
+         .div-parent{
+             width:100%;
+             //position:absolute;
+             height: 200px;
+             margin-top:5px;
+             
+            
+             
+             // border-bottom:1px solid #CCCCCC;
+         }
+}

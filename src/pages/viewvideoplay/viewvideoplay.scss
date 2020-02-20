@@ -1,0 +1,53 @@
+page-viewvideoplay {
+    .container {
+        padding: 20px;
+    }
+    .butt-style{
+        position: absolute;
+        top: 183px;
+        background-color: #fffefe;
+        color: black;
+        right: 10px;
+        height: 52px;
+        width: 29px;
+        z-index: 1;
+        
+    }
+    .pop-up{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .pop-style{
+        width: 100%;
+    }
+    .close-style{
+            display: flex;
+    justify-content: flex-end;
+    margin-right: 11px;
+    
+    margin-top: 11px;
+    position: absolute;
+    width: 100%;
+    right: 10px;
+    color: #fff;
+    top:0px;
+    }
+
+    .butt-style1{
+    position: absolute;
+    top: 253px;
+    background-color: #fffefe;
+    color: black;
+    right: 5px;
+    height: 52px;
+    width: 29px;
+    z-index: 1;
+    }
+ 
+}
+
+
+
+

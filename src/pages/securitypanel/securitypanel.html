@@ -1,0 +1,179 @@
+<!--
+  Generated template for the SecuritypanelPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+
+    <ion-navbar color="primary">
+        
+          <ion-title style="text-align:center">
+          <div class="title-hope">
+             <div class="round-tab">
+              <ion-row>
+                <ion-col id="log" class="col-stylelog" (click)="navigatebar(1)">
+               <p id="logp" class="log-p">Login</p>
+                </ion-col>
+                <ion-col id="reg" class="col-stylereg" (click)="navigatebar(2)">
+                    <p id="regp" class="reg-p">Register</p> 
+                </ion-col>
+              </ion-row>
+             </div>
+          </div>
+        </ion-title>
+      </ion-navbar>
+      </ion-header>
+
+<ion-content class="no-scroll" >
+    <!-- <div class="row-class">
+        <div id="strip-box" class="strip-div">
+         
+          <div id="log" class="login-div" (click)="navigatebar(1)">
+            <p id="logp" class="p-tagline">Login</p>
+          </div>
+          <div id="reg" class="regitser-div" (click)="navigatebar(2)">
+            <p id="regp" class="p-tagline">Register</p>
+          </div>
+        </div>
+       
+      </div> -->
+
+
+    <div *ngIf="user==true">
+    <ion-row [(ngModel)]="radiocheck" style="    margin-top: 8px;" radio-group>
+ 
+<ion-col class="col-option">
+<p class="p-option">Are you a user?</p>
+<ion-radio color="primary" slot="start" value="3" checked></ion-radio>
+</ion-col>
+<ion-col class="col-option">
+<p class="p-option">Are you an Artist?</p>
+<ion-radio  color="primary" slot="start" value="2" ></ion-radio>
+</ion-col>
+
+    </ion-row>
+    <ion-row>
+      <p class="register-net">Register using social networks</p>
+    </ion-row>
+    <ion-row style="    margin-top: 11px;">
+      <ion-col style="    text-align: end;" (click)="loginWithFB()">
+       <img class="social-img" src="assets/welcome/facebook.png">
+      </ion-col>
+      <ion-col style="    text-align: center;margin-left: 12px;" (click)="twLogin()">
+        <img  class="social-img" src="assets/welcome/twitter.png">
+      </ion-col>
+      <ion-col style="text-align: center;margin-right: 12px;" (click)="loginUser()">
+        <img class="social-img" src="assets/welcome/google_plus.png">
+      </ion-col>
+      <ion-col  (click)="instagramlogin()">
+        <img class="social-img" src="assets/welcome/instagram.png">
+      </ion-col>
+    </ion-row>
+    <ion-row style="    margin-top: 25px;">
+      <p class="p-divider">OR</p>
+    </ion-row>
+    
+    <form [formGroup]="signupform" >
+    <ion-row  style="justify-content:center">
+      <ion-item class="item-input">
+        <img  class="icon-img" style="height:15px"  src="assets/welcome/mail.png" item-left primary>
+        <ion-input [class.invalid]="!signupform.controls.email.valid && (signupform.controls.email.dirty || submitAttempt)" formControlName="email"  type="text" class="input-font-family" type="text" placeholder="Enter Email"></ion-input>
+      
+    </ion-item>
+    <div *ngIf="!signupform.controls.email.valid  && (signupform.controls.email.dirty || submitAttempt)">
+      <p class="error-text">Please enter a valid Email.</p>
+    </div>
+      <ion-item class="item-input">
+        <img class="icon-img" src="assets/welcome/password.png" item-left primary>
+        <ion-input [class.invalid]="!signupform.controls.password.valid && (signupform.controls.password.dirty || submitAttempt)" formControlName="password"  type="password" class="input-font-family"  class="input-font-family" placeholder="Enter Password"></ion-input>
+       </ion-item>
+       <div *ngIf="!signupform.controls.password.valid  && (signupform.controls.password.dirty || submitAttempt)">
+        <!-- <p class="error-text errorform">Password Should be Six characters including one uppercase letter, one special character and alphanumeric characters .</p> -->
+        <p class="error-text errorform">Password should of minimum 3 characters .</p>
+      </div>
+       <!-- <ion-item class="item-input">
+        <img  class="icon-img" 
+        ="assets/welcome/password.png" item-left primary>
+        <ion-input class="input-font-family" placeholder="Confirm Password"></ion-input>
+       </ion-item> -->
+       <ion-item class="item-input">
+          <img class="icon-img" src="assets/welcome/password.png" item-left primary>
+        <ion-input  formControlName="confirmPassword"  placeholder="Confirm Password" type="password" 
+           [class.invalid]="!signupform.controls.confirmPassword.valid && (signupform.controls.confirmPassword.dirty || submitAttempt)"></ion-input>
+     </ion-item>
+     <div *ngIf="signupform.controls.confirmPassword.errors?.MatchPassword">
+     <p class="error-text">Password not matching</p>
+    </div>
+    </ion-row>
+  </form>
+    <ion-row style="margin-top: 45px;">
+      <ion-col class="col-style1">
+      <button  [disabled]="!signupform.valid" (click)="navigatetotab()"  style="    width: 83%;height: 40px;font-family:AvenirLTStd-Heavy;" ion-button full color="primary" round>SUBMIT</button> 
+      </ion-col>
+      <ion-col class="col-style2">
+        <button (click)="cleardata()" [disabled]="signupform.valid" style="    width: 83%;height: 40px;font-family:AvenirLTStd-Heavy;" disabled ion-button full color="primary" round>CANCEL</button>
+      </ion-col>
+    </ion-row>
+    <ion-row style="height: 129px;" (click)="navigatebar(1)">
+      <p style="width: 100%;    text-align: CENTER; font-family: AvenirLTStd-Book;">Already have an account ?<span style="font-weight:bold;font-family: AvenirLTStd-Heavy;"> Login Here</span></p>
+    </ion-row>
+    </div>
+    <div *ngIf="user==false">
+      <ion-row style="justify-content:center;    margin-top: 23px;">
+        <ion-item class="item-input">
+          <img style="height:15px" class="icon-img"  src="assets/welcome/mail.png" item-left primary>
+          <ion-input [(ngModel)]="email" class="input-font-family" type="text" placeholder="Enter Email"></ion-input>
+        
+      </ion-item>
+        <ion-item class="item-input">
+          <img  class="icon-img" src="assets/welcome/password.png" item-left primary>
+          <ion-input type="password" [(ngModel)]="password" class="input-font-family" placeholder="Enter Password"></ion-input>
+         </ion-item>
+         
+      </ion-row>
+      <ion-row>
+        <p  (click)=" checkalert()" class="forget-style">Forgot Password?</p>
+      </ion-row>
+      <ion-row class="row-button">
+        <button (click)="navigatetotabsubmit()" style="width: 43%;height: 40px;font-family: AvenirLTStd-Heavy;" ion-button round color="primary" full>SUBMIT</button>
+      </ion-row>
+      <ion-row>
+          <ion-col col-5 class="check-style">
+          <ion-checkbox [(ngModel)]="checkremember" style="    margin-top: 0px;" class="check" color="primary" checked="true"></ion-checkbox>
+          <!-- <img class="check-style1" src="assets/welcome/check.png"> -->
+        </ion-col>
+        <ion-col col-7 style="    margin-left: -12px;">
+          <p style="    font-family: AvenirLTStd-Book;    font-size: 1.6rem;">Remember Me</p>
+        </ion-col>
+      </ion-row>
+      <ion-row (click)="navigatebar(2)">
+ 
+    <p  style="width: 100%;    text-align: CENTER;    font-family: AvenirLTStd-Book;font-size: 1.5rem;">Don't have an account ?<span style="font-weight:bold"> Register Here</span></p>
+      </ion-row>
+      <ion-row class="row-bottom">
+      <div class="bottom-bar">
+      <ion-row>
+        <p class="register-net">Login using social networks</p>
+      </ion-row>
+      <ion-row style="    margin-top: 11px;" >
+        <ion-col style="    text-align: end;" (click)="loginWithFB()">
+         <img class="social-img" src="assets/welcome/facebook.png">
+        </ion-col>
+        <ion-col style="    text-align: center;margin-left: 12px;" (click)="twLogin()" >
+          <img  class="social-img" src="assets/welcome/twitter.png">
+        </ion-col>
+        <ion-col style="text-align:center;margin-right: 12px; " (click)="loginUser()">
+          <img class="social-img" src="assets/welcome/google_plus.png">
+        </ion-col>
+        <ion-col  (click)="instagramlogin()">
+          <img class="social-img" src="assets/welcome/instagram.png">
+        </ion-col>
+      </ion-row>
+      </div>
+      </ion-row>
+    </div>
+ 
+    
+</ion-content>

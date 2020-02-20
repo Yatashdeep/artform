@@ -1,0 +1,89 @@
+{
+  "name": "artformplat",
+  "version": "0.0.1",
+  "author": "Ionic Framework",
+  "homepage": "http://ionicframework.com/",
+  "private": true,
+  "scripts": {
+    "clean": "ionic-app-scripts clean",
+    "build": "ionic-app-scripts build",
+    "lint": "ionic-app-scripts lint",
+    "ionic:build": "ionic-app-scripts build",
+    "ionic:serve": "ionic-app-scripts serve"
+  },
+  "dependencies": {
+    "@angular/animations": "^4.4.4",
+    "@angular/common": "5.0.0",
+    "@angular/compiler": "5.0.0",
+    "@angular/compiler-cli": "5.0.0",
+    "@angular/core": "5.0.0",
+    "@angular/forms": "5.0.0",
+    "@angular/http": "5.0.0",
+    "@angular/platform-browser": "5.0.0",
+    "@angular/platform-browser-dynamic": "5.0.0",
+    "@ionic-native/core": "4.3.2",
+    "@ionic-native/deeplinks": "^4.20.0",
+    "@ionic-native/facebook": "^3.14.0",
+    "@ionic-native/file": "^4.20.0",
+    "@ionic-native/google-plus": "^3.14.0",
+    "@ionic-native/native-page-transitions": "^3.14.0",
+    "@ionic-native/pinterest": "^4.20.0",
+    "@ionic-native/social-sharing": "^5.8.0",
+    "@ionic-native/splash-screen": "4.3.2",
+    "@ionic-native/status-bar": "4.3.2",
+    "@ionic-native/twitter-connect": "^3.14.0",
+    "@ionic-native/youtube-video-player": "^4.20.0",
+    "@ionic/storage": "2.1.3",
+    "angular2-tag-input": "^1.2.3",
+    "com.telerik.plugins.nativepagetransitions": "^0.6.5",
+    "cordova-android": "^6.4.0",
+    "cordova-plugin-device": "^1.1.4",
+    "cordova-plugin-facebook4": "^1.9.1",
+    "cordova-plugin-googleplus": "^5.2.1",
+    "cordova-plugin-ionic-webview": "^1.1.11",
+    "cordova-plugin-splashscreen": "^4.0.3",
+    "cordova-plugin-whitelist": "^1.3.1",
+    "ionic-angular": "3.9.2",
+    "ionic-plugin-keyboard": "^2.2.1",
+    "ionic3-star-rating": "^1.1.5",
+    "ionicons": "3.0.0",
+    "moment": "^2.24.0",
+    "ng2-cookies": "^1.0.12",
+    "ng2-cordova-oauth": "0.0.8",
+    "rxjs": "5.5.2",
+    "sw-toolbox": "3.6.0",
+    "twitter-connect-plugin": "^0.6.0",
+    "videogular2": "^6.1.1",
+    "zone.js": "0.8.18"
+  },
+  "devDependencies": {
+    "@ionic/app-scripts": "3.1.0",
+    "@types/core-js": "^2.5.2",
+    "typescript": "2.4.2",
+    "ws": "3.3.2"
+  },
+  "description": "An Ionic project",
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-device": {},
+      "cordova-plugin-ionic-webview": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-whitelist": {},
+      "ionic-plugin-keyboard": {},
+      "com.telerik.plugins.nativepagetransitions": {},
+      "twitter-connect-plugin": {
+        "FABRIC_KEY": "3218c800211db53bb90e77910223b6eef082f76a"
+      },
+      "cordova-plugin-googleplus": {
+        "REVERSED_CLIENT_ID": "863534362265-v1htp4ir158do90e02r20j4rd01rvahj.apps.googleusercontent.com"
+      },
+      "cordova-plugin-facebook4": {
+        "APP_ID": "315436965794053",
+        "APP_NAME": "ArtFormPlatform"
+      }
+    },
+    "platforms": [
+      "android"
+    ]
+  }
+}
